@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Děkujeme — ULOV KLIENTY</title>
+  <meta name="description" content="Poptávka byla odeslána. Brzy se vám ozveme." />
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <style>
+    /* Nouzové minimum, kdyby main.css nebyl načten – stránka i tak vypadá dobře */
+    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#0A141A; color:#EAF2F6;}
+    .wrap{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;}
+    .card{max-width:720px; width:100%; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:18px; padding:22px; box-shadow:0 18px 60px rgba(0,0,0,.35);}
+    .title{margin:0 0 8px; font-size:28px; line-height:1.2;}
+    .lead{margin:0 0 14px; color:rgba(234,242,246,.85); font-size:16px; line-height:1.6;}
+    .row{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.14); background:#C9A24A; color:#0A141A; font-weight:700; text-decoration:none;}
+    .btn--ghost{background:transparent; color:#EAF2F6;}
+    .small{margin-top:14px; font-size:13px; color:rgba(234,242,246,.7);}
+    .pill{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(201,162,74,.12); border:1px solid rgba(201,162,74,.25); color:#EAF2F6; font-size:13px; margin-bottom:12px;}
+    .contact{margin-top:12px; padding:12px; border-radius:14px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.10); line-height:1.6;}
+    .contact a{color:#EAF2F6;}
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="card" role="status" aria-live="polite">
+      <div class="pill">✅ Odesláno</div>
+      <h1 class="title">Děkujeme! Poptávka dorazila.</h1>
+      <p class="lead">
+        Ozveme se vám co nejdříve. Pokud to spěchá, klidně nám rovnou zavolejte —
+        často to vyřešíme během pár minut.
+      </p>
+
+      <div class="contact">
+        <strong>Kontakt:</strong><br>
+        📞 <a href="tel:+420719756746">+420 719 756 746</a><br>
+        ✉️ <a href="mailto:info@ulovklienty.cz">info@ulovklienty.cz</a>
+      </div>
+
+      <div class="row">
+        <!-- Uprav si odkaz na tvoji hlavní stránku -->
+        <a class="btn" href="ulov_klienty.html">Zpět na hlavní stránku</a>
+        <a class="btn btn--ghost" href="tel:+420719756746">Zavolat teď</a>
+        <a class="btn btn--ghost" href="mailto:info@ulovklienty.cz">Napsat e-mail</a>
+      </div>
+
+      <p class="small">
+        Tip: Pokud jste omylem vyplnili špatné údaje, pošlete formulář znovu nebo nám zavolejte.
+      </p>
+    </section>
+  </main>
+
+  <script src="assets/js/year.js" defer></script>
+</body>
+</html>
