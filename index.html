@@ -51,6 +51,9 @@
 
 
   <main id="top">
+    <!-- Horní část webu: hero + triple-section s jedním pozadím (particles) -->
+    <div class="top-section">
+      <div class="top-section__bg" aria-hidden="true"></div>
     <!-- HERO -->
     <section class="hero">
       <div class="container hero__grid">
@@ -126,18 +129,6 @@
             <a class="btn btn--ghost" href="#sluzby">Ukázat služby + ceny</a>
           </div>
 
-          <section class="section">
-            <div class="container">
-              <h2>Pro koho to děláme</h2>
-              <ul>
-                <li>Finanční poradci a makléři</li>
-                <li>Řemeslníci (elektro, topení, stavební práce, servis)</li>
-                <li>Lokální služby (úklid, autodetailing, masáže, servis)</li>
-                <li>Salony a beauty služby</li>
-              </ul>
-            </div>
-          </section>
-
           <div class="hero__proof">
             <div class="proof">
               <div class="proof__num">Online / osobně</div>
@@ -171,6 +162,44 @@
       </div>
     </section>
 
+    <!-- Pro koho | Obrázek | Návratnost – 3 sloupce, hodně nahoru -->
+    <section id="navratnost" class="section triple-section">
+      <div class="container triple-section__grid">
+        <div class="triple-section__left">
+          <h2 class="triple-section__title">Pro koho to děláme</h2>
+          <ul class="triple-section__list">
+            <li>Finanční poradci a makléři</li>
+            <li>Řemeslníci (elektro, topení, stavební práce, servis)</li>
+            <li>Lokální služby (úklid, autodetailing, masáže, servis)</li>
+            <li>Salony a beauty služby</li>
+          </ul>
+        </div>
+        <div class="triple-section__center" aria-hidden="true">
+          <img
+            src="https://haklweb.b-cdn.net/ULOV_KLIENTA/geralt-feedback-3083100_1280.jpg"
+            srcset="https://haklweb.b-cdn.net/ULOV_KLIENTA/geralt-feedback-3083100_1280.jpg 1280w"
+            sizes="(max-width: 768px) 100vw, (max-width: 1020px) 85vw, 380px"
+            alt=""
+            width="1280"
+            height="720"
+            loading="lazy"
+          />
+        </div>
+        <div class="triple-section__right">
+          <h2 class="triple-section__title">Návratnost, která dává smysl</h2>
+          <p class="triple-section__text">
+            Návratnost není jen o tom, že zákazník napíše jednou a už ho neuvidíte.
+            Cíl je, aby se <b>pravidelně vracel</b> — když dostane kvalitní službu a bude se vám s ním dobře pracovat.
+            Navíc může dát recenzi, která přivede další zájemce. A často to nekončí jen u něj:
+            příště může doporučit kolegu, známého nebo rodinu.
+            Jeden spokojený zákazník může rozjet <b>lavinový efekt</b> — a ten už není o hodnotě jedné zakázky,
+            ale o jeho opakovaných poptávkách a o lidech, které přivede.
+          </p>
+        </div>
+      </div>
+    </section>
+    </div><!-- /top-section -->
+
     <!-- HOW -->
     <section id="jak" class="section">
       <div class="container">
@@ -201,24 +230,20 @@
       </div>
     </section>
 
-    <!-- ROI EXPLAIN + CALC (před ceníkem/službami) -->
-    <section id="navratnost" class="section">
-      <div class="container">
-        <div class="section__head">
-          <h2>Návratnost, která dává smysl</h2>
-          <p>
-            Návratnost není jen o tom, že zákazník napíše jednou a už ho neuvidíte.
-            Cíl je, aby se <b>pravidelně vracel</b> — když dostane kvalitní službu a bude se vám s ním dobře pracovat.
-            Navíc může dát recenzi, která přivede další zájemce. A často to nekončí jen u něj:
-            příště může doporučit kolegu, známého nebo rodinu.
-            Jeden spokojený zákazník může rozjet <b>lavinový efekt</b> — a ten už není o hodnotě jedné zakázky,
-            ale o jeho opakovaných poptávkách a o lidech, které přivede.
-          </p>
-        </div>
-
-        
+    <!-- Obrázek těsně nad „S čím umíme pomoci“ -->
+    <div class="container section-before-sluzby">
+      <div class="section-before-sluzby__img-wrap" aria-hidden="true">
+        <img
+          src="https://haklweb.b-cdn.net/ULOV_KLIENTA/wokandapix-support-2355701_1280.jpg"
+          srcset="https://haklweb.b-cdn.net/ULOV_KLIENTA/wokandapix-support-2355701_1280.jpg 1280w"
+          sizes="(max-width: 620px) 100vw, (max-width: 1020px) 90vw, 1180px"
+          alt=""
+          width="1280"
+          height="720"
+          loading="lazy"
+        />
       </div>
-    </section>
+    </div>
 
     <!-- SERVICES + PRICES IN TILES -->
     <section id="sluzby" class="section">
