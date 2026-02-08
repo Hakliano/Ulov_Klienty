@@ -11,40 +11,29 @@
 
 <body>
   <header class="header">
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="Domů">
-        <img class="brand__logo" src="https://haklweb.b-cdn.net/ULOV_KLIENTA/ULOV_KLIENTY_logo.png" alt="ULOV KLIENTY logo">
-        <div>
-          <div class="brand__name">ULOV KLIENTY</div>
-          <div class="brand__tag">S námi budete konečně vidět 24/7</div>
-        </div>
+    <div class="header__inner container">
+      <div class="header__left">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true" hidden />
+        <label for="nav-toggle" class="nav-toggle" aria-label="Otevřít nebo zavřít menu">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </label>
+        <nav class="menu" aria-label="Hlavní navigace">
+          <a href="#jak">Jak to funguje</a>
+          <a href="#sluzby">S čím pomůžeme</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+      </div>
+
+      <a class="header__brand" href="#top" aria-label="Domů">
+        <img class="header__logo" src="https://haklweb.b-cdn.net/ULOV_KLIENTA/New%20Project.webp" alt="ULOV KLIENTY" width="500" height="220" decoding="async">
       </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true" hidden />
-      <label for="nav-toggle" class="nav-toggle" aria-label="Otevřít nebo zavřít menu">
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-      </label>
-
-      <nav class="menu" aria-label="Hlavní navigace">
-        <a href="#jak">Jak to funguje</a>
-        <a href="#sluzby">S čím pomůžeme</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-
-      <div class="header-actions">
-        <a class="header-contact phone" href="tel:+420719756746">
-          📞 +420&nbsp;719&nbsp;756&nbsp;746
-        </a>
-
-        <a class="header-contact email" href="mailto:info@ulovklienty.cz">
-          ✉️ info@ulovklienty.cz
-        </a>
-
-        <a class="btn btn--small" href="#kontakt">
-          Domluvit schůzku
-        </a>
+      <div class="header__actions">
+        <a class="header__contact header__contact--phone" href="tel:+420719756746">📞 +420&nbsp;719&nbsp;756&nbsp;746</a>
+        <a class="header__contact header__contact--email" href="mailto:info@ulovklienty.cz">✉️ info@ulovklienty.cz</a>
+        <a class="btn btn--small" href="#kontakt">Domluvit schůzku</a>
       </div>
     </div>
   </header>
@@ -234,8 +223,8 @@
     <div class="container section-before-sluzby">
       <div class="section-before-sluzby__img-wrap" aria-hidden="true">
         <img
-          src="https://haklweb.b-cdn.net/ULOV_KLIENTA/wokandapix-support-2355701_1280.jpg"
-          srcset="https://haklweb.b-cdn.net/ULOV_KLIENTA/wokandapix-support-2355701_1280.jpg 1280w"
+          src="https://haklweb.b-cdn.net/ULOV_KLIENTA/support_wood.webp"
+          srcset="https://haklweb.b-cdn.net/ULOV_KLIENTA/support_wood.webp 1280w"
           sizes="(max-width: 620px) 100vw, (max-width: 1020px) 90vw, 1180px"
           alt=""
           width="1280"
