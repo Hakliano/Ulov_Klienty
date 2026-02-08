@@ -8,26 +8,34 @@
   <link rel="stylesheet" href="assets/css/main.css">
 
   <style>
-    /* Nouzové minimum, kdyby main.css nebyl načten – stránka i tak vypadá dobře */
+    /* Děkujeme – vizuál sladěný s hlavním webem */
     body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#0A141A; color:#EAF2F6;}
     .wrap{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;}
-    .card{max-width:720px; width:100%; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:18px; padding:22px; box-shadow:0 18px 60px rgba(0,0,0,.35);}
-    .title{margin:0 0 8px; font-size:28px; line-height:1.2;}
-    .lead{margin:0 0 14px; color:rgba(234,242,246,.85); font-size:16px; line-height:1.6;}
-    .row{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;}
-    .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.14); background:#C9A24A; color:#0A141A; font-weight:700; text-decoration:none;}
-    .btn--ghost{background:transparent; color:#EAF2F6;}
-    .small{margin-top:14px; font-size:13px; color:rgba(234,242,246,.7);}
-    .pill{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(201,162,74,.12); border:1px solid rgba(201,162,74,.25); color:#EAF2F6; font-size:13px; margin-bottom:12px;}
-    .contact{margin-top:12px; padding:12px; border-radius:14px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.10); line-height:1.6;}
-    .contact a{color:#EAF2F6;}
+    .card{max-width:560px; width:100%; background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.12); border-radius:24px; padding:32px; box-shadow:0 18px 60px rgba(0,0,0,.4);}
+    .title{margin:0 0 12px; font-size:26px; line-height:1.25; font-weight:800;}
+    .lead{margin:0 0 20px; color:rgba(234,242,246,.9); font-size:16px; line-height:1.6;}
+    .row{display:flex; flex-wrap:wrap; gap:12px; margin-top:20px;}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 18px; border-radius:999px; border:1px solid rgba(201,162,74,.45); background:linear-gradient(180deg, rgba(201,162,74,.95), rgba(201,162,74,.75)); color:#0A141A; font-weight:700; text-decoration:none; transition:transform .12s ease;}
+    .btn:hover{transform:translateY(-1px);}
+    .btn--ghost{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.15); color:#EAF2F6;}
+    .btn--ghost:hover{background:rgba(255,255,255,.1);}
+    .small{margin-top:18px; font-size:13px; color:rgba(234,242,246,.65);}
+    .pill{display:inline-flex; align-items:center; gap:6px; padding:8px 14px; border-radius:999px; background:rgba(201,162,74,.12); border:1px solid rgba(201,162,74,.3); color:#EAF2F6; font-size:13px; font-weight:600; margin-bottom:16px;}
+    .pill::before{content:""; width:16px; height:16px; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C9A24A' stroke-width='2'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") no-repeat center; background-size:contain;}
+    .contact{margin-top:16px; padding:18px; border-radius:16px; background:rgba(0,0,0,.2); border:1px solid rgba(255,255,255,.08);}
+    .contact strong{display:block; margin-bottom:10px; font-size:14px; color:rgba(234,242,246,.9);}
+    .contact__row{display:flex; align-items:center; gap:10px; margin:8px 0;}
+    .contact__row:first-of-type{margin-top:0;}
+    .contact__icon{flex-shrink:0; width:20px; height:20px;}
+    .contact a{color:#C9A24A; font-weight:600; text-decoration:none;}
+    .contact a:hover{text-decoration:underline;}
   </style>
 </head>
 
 <body>
   <main class="wrap">
     <section class="card" role="status" aria-live="polite">
-      <div class="pill">✅ Odesláno</div>
+      <div class="pill">Odesláno</div>
       <h1 class="title">Děkujeme! Poptávka dorazila.</h1>
       <p class="lead">
         Ozveme se vám co nejdříve. Pokud to spěchá, klidně nám rovnou zavolejte —
@@ -35,9 +43,15 @@
       </p>
 
       <div class="contact">
-        <strong>Kontakt:</strong><br>
-        📞 <a href="tel:+420719756746">+420 719 756 746</a><br>
-        ✉️ <a href="mailto:info@ulovklienty.cz">info@ulovklienty.cz</a>
+        <strong>Kontakt</strong>
+        <div class="contact__row">
+          <svg class="contact__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#C9A24A" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+420719756746">+420 719 756 746</a>
+        </div>
+        <div class="contact__row">
+          <svg class="contact__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#C9A24A" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:info@ulovklienty.cz">info@ulovklienty.cz</a>
+        </div>
       </div>
 
       <div class="row">
