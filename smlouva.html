@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ULOV KLIENTY — Smlouva o poskytování marketingových a poradenských služeb</title>
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --paper:#ffffff;
+      --ink:#0f172a;
+      --muted:#475569;
+      --line:#e5e7eb;
+      --soft:#f8fafc;
+      --shadow: 0 18px 60px rgba(2,6,23,.18);
+      --radius: 18px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(255,255,255,.10), transparent 60%),
+        radial-gradient(1000px 650px at 95% 10%, rgba(255,255,255,.08), transparent 55%),
+        linear-gradient(180deg, #070a0e, var(--bg));
+      color:var(--ink);
+      padding: 36px 18px;
+    }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .paper{
+      background:var(--paper);
+      border: 1px solid rgba(15,23,42,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    /* ===== HEADER (LOGO | TITLE | LOGO) ===== */
+    .doc-header{
+      padding: 26px 34px 18px;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 96px 1fr 96px; /* pevné sloupce pro symetrii */
+      align-items: center;
+      background: linear-gradient(180deg, rgba(248,250,252,.95), rgba(255,255,255,1));
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      user-select:none;
+    }
+
+    .logo img{
+      width: 58px;
+      height: auto;
+      display:block;
+      filter: drop-shadow(0 6px 10px rgba(2,6,23,.12));
+    }
+
+    .doc-title{
+      text-align: center;
+      justify-self: center;
+      max-width: 100%;
+    }
+
+    .doc-title h1{
+      margin:0;
+      font-size: 16.5px;
+      letter-spacing:.02em;
+      text-transform: uppercase;
+      color:#0b1220;
+      line-height: 1.25;
+      /* pokud chcete NUTNĚ 1 řádek, odkomentujte:
+      white-space: nowrap;
+      */
+    }
+
+    .doc-title p{
+      margin: 8px 0 0;
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    /* ===== Zpět na web ===== */
+    .doc-nav{
+      display: flex;
+      justify-content: center;
+      padding: 14px 34px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(248,250,252,.6), rgba(255,255,255,1));
+    }
+    .doc-back-wrap{
+      display: flex;
+      justify-content: center;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+    .btn-back{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      color: #0b1114;
+      background: linear-gradient(180deg, #d4af37, #c9a24a);
+      border: 1px solid rgba(180,140,45,.5);
+      box-shadow: 0 8px 24px rgba(201,162,74,.35);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .btn-back:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(201,162,74,.45);
+    }
+
+    /* ===== MAIN ===== */
+    main{
+      padding: 28px 34px 34px;
+    }
+
+    .meta{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .card{
+      background: var(--soft);
+      border: 1px solid rgba(148,163,184,.35);
+      border-radius: 14px;
+      padding: 14px 14px;
+    }
+
+    .card h3{
+      margin:0 0 8px 0;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #0f172a;
+    }
+
+    .lines{
+      font-size: 13.5px;
+      color: #0f172a;
+      line-height: 1.55;
+      white-space: pre-line;
+    }
+
+    .section{
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section h2{
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #0b1220;
+    }
+
+    .section ol{
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.65;
+      font-size: 14px;
+      color: #0f172a;
+    }
+
+    .section p{
+      margin: 8px 0 0;
+      font-size: 14px;
+      line-height: 1.65;
+      color:#0f172a;
+    }
+
+    .services{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .signature{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .sig-box{
+      border: 1px solid rgba(148,163,184,.55);
+      border-radius: 14px;
+      padding: 14px;
+      min-height: 120px;
+      background: #fff;
+    }
+
+    .sig-line{
+      margin-top: 56px;
+      border-top: 1px solid #94a3b8;
+      padding-top: 8px;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    /* ===== FOOTER ===== */
+    footer{
+      border-top: 1px solid var(--line);
+      padding: 14px 34px 18px;
+      background: #fff;
+    }
+
+    .footer-grid{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap: 8px 14px;
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.4;
+    }
+
+    .footer-grid strong{ color:#0f172a; }
+
+    /* ===== PRINT ===== */
+    @media print{
+      body{
+        background:#fff;
+        padding:0;
+      }
+      .paper{
+        box-shadow:none;
+        border:none;
+        border-radius:0;
+      }
+      .doc-nav,
+      .doc-back-wrap{ display:none !important; }
+      .doc-header{
+        border-bottom: 1px solid #d1d5db;
+      }
+      footer{
+        border-top: 1px solid #d1d5db;
+      }
+      .card{
+        background:#fff;
+      }
+      a{ color:inherit; text-decoration:none; }
+    }
+
+    /* ===== SMALL SCREENS ===== */
+    @media (max-width: 720px){
+      .doc-header{
+        grid-template-columns: 1fr; /* jedna kolona */
+        gap: 10px;
+        text-align: center;
+      }
+
+      .logo.right{
+        display:none; /* na mobilu schovat pravé logo */
+      }
+
+      .doc-title h1{
+        font-size: 15px;
+      }
+
+      .meta{ grid-template-columns: 1fr; }
+      .signature{ grid-template-columns: 1fr; }
+
+      main, .doc-header, footer{
+        padding-left:18px;
+        padding-right:18px;
+      }
+    }
+  </style>
+</head>
+
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="paper">
+
+      <header class="doc-header">
+        <div class="logo left">
+          <a href="index.html" aria-label="Domů"><img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/New%20Project.webp" alt="ULOV KLIENTY" decoding="async"></a>
+        </div>
+
+        <div class="doc-title">
+          <h1>SMLOUVA O POSKYTOVÁNÍ MARKETINGOVÝCH A PORADENSKÝCH SLUŽEB</h1>
+          <p>uzavřená dle § 1746 odst. 2 zákona č. 89/2012 Sb., občanský zákoník</p>
+        </div>
+
+        <div class="logo right">
+          <a href="index.html" aria-label="Domů"><img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/New%20Project.webp" alt="ULOV KLIENTY" decoding="async"></a>
+        </div>
+      </header>
+
+      <nav class="doc-nav" aria-label="Navigace">
+        <a href="index.html" class="btn-back">Zpět na web</a>
+      </nav>
+
+      <main>
+
+        <div class="meta">
+          <div class="card">
+            <h3>Poskytovatel</h3>
+            <div class="lines">
+ULOV KLIENTY
+zastoupený: Jiří Hakl
+IČO: __________________________
+Sídlo: Aubrechtové 3110/8, Praha 10, 106 00
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Partner</h3>
+            <div class="lines">
+Název / Jméno: __________________________
+IČO: __________________________
+Sídlo: __________________________
+            </div>
+          </div>
+        </div>
+
+        <section class="section" id="cl1">
+          <h2>1. SMLUVNÍ STRANY</h2>
+          <p><b>Poskytovatel:</b> ULOV KLIENTY, zastoupený: Jiří Hakl, IČO: ____________________, Sídlo: Aubrechtové 3110/8, Praha 10, 106 00 (dále jen „Poskytovatel“)</p>
+          <p><b>Partner:</b> Název / Jméno: __________________________, IČO: __________________________, Sídlo: __________________________ (dále jen „Partner“)</p>
+        </section>
+
+        <section class="section" id="cl2">
+          <h2>2. PŘEDMĚT SMLOUVY</h2>
+          <ol>
+            <li>Poskytovatel se zavazuje poskytnout Partnerovi <b>marketingové a poradenské služby v oblasti IT, online prezentace a reklamy</b>, a to výhradně v rozsahu vybraném Partnerem dle této smlouvy.</li>
+            <li>Partner potvrzuje, že mu byl nabídnut širší seznam služeb, z něhož si <b>dobrovolně vybral pouze služby uvedené v článku 3</b> této smlouvy.</li>
+            <li>Služby mají <b>poradenský, prezentační a marketingový charakter</b>.</li>
+          </ol>
+        </section>
+
+        <section class="section" id="cl3">
+          <h2>3. ROZSAH SLUŽEB – VÝBĚR PARTNERA</h2>
+          <p>Partner si objednává následující služby:</p>
+          <ul class="services">
+            <li>Audit online prezentace (webové stránky, Google, Mapy.cz, Seznam / Firmy.cz, další online katalogy a prezentační portály)</li>
+            <li>Úprava nebo vytvoření webových stránek</li>
+            <li>Nastavení nebo optimalizace online profilů</li>
+            <li>Sociální sítě – konzultace a úprava</li>
+            <li>Offline marketingové materiály – návrh a případné zajištění výroby (např. vizitky, letáky, QR kódy, další tiskoviny)</li>
+          </ul>
+          <p>Ostatní nabízené služby <b>nebyly Partnerem vybrány</b> a nejsou předmětem této smlouvy.</p>
+        </section>
+
+        <section class="section" id="cl4">
+          <h2>4. ODMĚNA A PLATEBNÍ PODMÍNKY</h2>
+          <ol>
+            <li>Partner se zavazuje uhradit Poskytovateli odměnu ve výši: <b>____________________ Kč</b>.</li>
+            <li>Odměna je <b>fixní</b> a není závislá na počtu zákazníků ani na obchodním výsledku Partnera.</li>
+            <li>Odměna je splatná do ______ dnů ode dne vystavení faktury.</li>
+          </ol>
+        </section>
+
+        <section class="section" id="cl5">
+          <h2>5. ODPOVĚDNOST A OMEZENÍ</h2>
+          <ol>
+            <li>Poskytovatel <b>negarantuje zvýšení tržeb, počtu zákazníků ani jiný konkrétní obchodní výsledek</b>.</li>
+            <li>Partner bere na vědomí, že výsledek marketingových služeb závisí zejména na:
+              <ul class="services">
+                <li>kvalitě jeho vlastních služeb,</li>
+                <li>cenové politice,</li>
+                <li>komunikaci se zákazníky,</li>
+                <li>konkurenčním prostředí.</li>
+              </ul>
+            </li>
+            <li>Poskytovatel nenese odpovědnost za rozhodnutí Partnera učiněná na základě poskytnutých doporučení.</li>
+          </ol>
+        </section>
+
+        <section class="section" id="cl6">
+          <h2>6. GDPR A MLČENLIVOST</h2>
+          <ol>
+            <li>Poskytovatel může v rámci plnění této smlouvy zpracovávat osobní a kontaktní údaje Partnera.</li>
+            <li>Osobní údaje jsou zpracovávány <b>výhradně za účelem plnění této smlouvy</b>.</li>
+            <li>Obě smluvní strany se zavazují zachovávat mlčenlivost o všech neveřejných informacích, které se v souvislosti se smlouvou dozví.</li>
+          </ol>
+        </section>
+
+        <section class="section" id="cl7">
+          <h2>7. TRVÁNÍ A UKONČENÍ</h2>
+          <ol>
+            <li>Tato smlouva se uzavírá na dobu nezbytnou ke splnění vybraných služeb.</li>
+            <li>Smlouvu lze ukončit dohodou smluvních stran.</li>
+            <li>Ukončením smlouvy není dotčeno právo Poskytovatele na úhradu již poskytnutých služeb.</li>
+          </ol>
+        </section>
+
+        <section class="section" id="cl8">
+          <h2>8. ZÁVĚREČNÁ USTANOVENÍ</h2>
+          <ol>
+            <li>Tato smlouva představuje <b>úplnou dohodu</b> mezi smluvními stranami.</li>
+            <li>Právní vztahy neupravené touto smlouvou se řídí právem České republiky.</li>
+            <li>Smlouva je vyhotovena ve dvou stejnopisech, z nichž každá strana obdrží jeden.</li>
+          </ol>
+        </section>
+
+        <section class="section" id="sign">
+          <div class="lines">V __________________________ dne __________________________</div>
+
+          <div class="signature">
+            <div class="sig-box">
+              <div class="sig-line">Podpis Poskytovatele</div>
+            </div>
+            <div class="sig-box">
+              <div class="sig-line">Podpis Partnera</div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <div class="footer-grid">
+          <div><strong>ULOV KLIENTY</strong> | Jiří Hakl</div>
+          <div>📞 +420 719 756 746</div>
+          <div>✉️ hakl@ulovklienty.cz</div>
+          <div>www.ulovklienty.cz</div>
+          <div>Sídlo: Aubrechtové 3110/8, Praha 10, 106 00</div>
+          <div>Korespondenční adresa: Všenorská 0396, Dobřichovice, 252 29</div>
+        </div>
+        <div class="doc-back-wrap">
+          <a href="index.html" class="btn-back">Zpět na web</a>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</body>
+</html>
