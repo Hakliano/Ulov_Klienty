@@ -467,6 +467,20 @@
       gap: 12px;
     }
 
+    .footer-legal {
+      margin: 10px 0 0;
+      padding: 0;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+    .footer-legal a {
+      color: #6b7280;
+      text-decoration: underline;
+    }
+    .footer-legal a:hover {
+      color: #4b5563;
+    }
+
     .credits {
       display: flex;
       align-items: center;

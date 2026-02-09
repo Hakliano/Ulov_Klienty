@@ -1,0 +1,306 @@
+/* ===== ULOV KLIENTY – společná šablona pro dokumenty (smlouva, obchodní podmínky) ===== */
+:root{
+  --doc-bg:#0b0f14;
+  --doc-paper:#ffffff;
+  --doc-ink:#0f172a;
+  --doc-muted:#475569;
+  --doc-line:#e5e7eb;
+  --doc-soft:#f8fafc;
+  --doc-shadow: 0 18px 60px rgba(2,6,23,.18);
+  --doc-radius: 18px;
+  --doc-gold:#c9a24a;
+  --doc-gold-dark:#b8923f;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background:
+    radial-gradient(1200px 700px at 20% -10%, rgba(201,162,74,.08), transparent 60%),
+    radial-gradient(1000px 650px at 95% 10%, rgba(255,255,255,.06), transparent 55%),
+    linear-gradient(180deg, #070a0e, var(--doc-bg));
+  color: var(--doc-ink);
+  padding: 36px 18px;
+}
+
+.wrap{
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.paper{
+  background: var(--doc-paper);
+  border: 1px solid rgba(15,23,42,.08);
+  border-radius: var(--doc-radius);
+  box-shadow: var(--doc-shadow);
+  overflow: hidden;
+}
+
+/* ===== HEADER (LOGO | TITLE | LOGO) ===== */
+.doc-header{
+  padding: 26px 34px 18px;
+  border-bottom: 1px solid var(--doc-line);
+  display: grid;
+  grid-template-columns: 96px 1fr 96px;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(248,250,252,.95), rgba(255,255,255,1));
+}
+
+.doc-header.doc-header--simple{
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.logo img{
+  width: 58px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 6px 10px rgba(2,6,23,.12));
+}
+
+.doc-title{
+  text-align: center;
+  justify-self: center;
+  max-width: 100%;
+}
+
+.doc-title h1{
+  margin: 0;
+  font-size: 16.5px;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: #0b1220;
+  line-height: 1.25;
+}
+
+.doc-title p{
+  margin: 8px 0 0;
+  font-size: 12.5px;
+  color: var(--doc-muted);
+  line-height: 1.35;
+}
+
+/* ===== Zpět na web ===== */
+.doc-nav{
+  display: flex;
+  justify-content: center;
+  padding: 14px 34px;
+  border-bottom: 1px solid var(--doc-line);
+  background: linear-gradient(180deg, rgba(248,250,252,.6), rgba(255,255,255,1));
+}
+
+.doc-back-wrap{
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--doc-line);
+}
+
+.btn-back{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  color: #0b1114;
+  background: linear-gradient(180deg, #d4af37, var(--doc-gold));
+  border: 1px solid rgba(180,140,45,.5);
+  box-shadow: 0 8px 24px rgba(201,162,74,.35);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.btn-back:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(201,162,74,.45);
+}
+
+/* ===== MAIN ===== */
+.doc-body main{
+  padding: 28px 34px 34px;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.doc-body .section{
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--doc-line);
+}
+
+.doc-body .section h2{
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #0b1220;
+}
+
+.doc-body .section p{
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #0f172a;
+}
+
+.doc-body .section ol{
+  margin: 0;
+  padding-left: 18px;
+  line-height: 1.65;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+/* ===== Smlouva-specific: meta, card, signature ===== */
+.meta{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.card{
+  background: var(--doc-soft);
+  border: 1px solid rgba(148,163,184,.35);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.card h3{
+  margin: 0 0 8px 0;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #0f172a;
+}
+
+.lines{
+  font-size: 13.5px;
+  color: #0f172a;
+  line-height: 1.55;
+  white-space: pre-line;
+}
+
+.services{
+  margin: 10px 0 0;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.signature{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.sig-box{
+  border: 1px solid rgba(148,163,184,.55);
+  border-radius: 14px;
+  padding: 14px;
+  min-height: 120px;
+  background: #fff;
+}
+
+.sig-line{
+  margin-top: 56px;
+  border-top: 1px solid #94a3b8;
+  padding-top: 8px;
+  font-size: 12.5px;
+  color: var(--doc-muted);
+}
+
+/* ===== FOOTER ===== */
+.doc-body footer{
+  border-top: 1px solid var(--doc-line);
+  padding: 14px 34px 18px;
+  background: #fff;
+}
+
+.footer-grid{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  color: var(--doc-muted);
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+.footer-grid strong{ color: #0f172a; }
+
+/* ===== PRINT ===== */
+@media print{
+  body{
+    background: #fff;
+    padding: 0;
+  }
+  .paper{
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+  }
+  .doc-nav,
+  .doc-back-wrap{ display: none !important; }
+  .doc-header{
+    border-bottom: 1px solid #d1d5db;
+  }
+  footer{
+    border-top: 1px solid #d1d5db;
+  }
+  .card{
+    background: #fff;
+  }
+  a{ color: inherit; text-decoration: none; }
+}
+
+/* ===== RESPONZIVITA ===== */
+@media (max-width: 720px){
+  .doc-header{
+    grid-template-columns: 1fr;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .doc-header.doc-header--simple{
+    grid-template-columns: 1fr;
+  }
+
+  .logo.right{
+    display: none;
+  }
+
+  .doc-title h1{
+    font-size: 15px;
+  }
+
+  .meta{ grid-template-columns: 1fr; }
+  .signature{ grid-template-columns: 1fr; }
+
+  .doc-body main,
+  .doc-header,
+  .doc-body footer{
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .doc-nav{
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
