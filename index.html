@@ -11,459 +11,232 @@
 
 <body>
   <header class="header">
-    <div class="header__inner container">
-      <div class="header__left">
-        <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true" hidden />
-        <label for="nav-toggle" class="nav-toggle" aria-label="Otevřít nebo zavřít menu">
-          <span class="nav-toggle__bar"></span>
-          <span class="nav-toggle__bar"></span>
-          <span class="nav-toggle__bar"></span>
-        </label>
-        <nav class="menu" aria-label="Hlavní navigace">
-          <a href="#jak">Jak to funguje</a>
-          <a href="#sluzby">S čím pomůžeme</a>
-          <a href="#kontakt">Kontakt</a>
-          <a href="obchodni-podminky.html">Obchodní podmínky</a>
-        </nav>
+    <!-- Tenká navigační lišta nahoře -->
+    <div class="header__bar">
+      <div class="container header__bar-inner">
+        <div class="header__left">
+          <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true" hidden />
+          <label for="nav-toggle" class="nav-toggle" aria-label="Otevřít nebo zavřít menu">
+            <span class="nav-toggle__bar"></span>
+            <span class="nav-toggle__bar"></span>
+            <span class="nav-toggle__bar"></span>
+          </label>
+          <nav class="menu" aria-label="Hlavní navigace">
+            <a href="#poznavate-se">Poznáváte se?</a>
+            <a href="#sluzby">Co upravíme</a>
+            <a href="#ceny">Ceny</a>
+            <a href="#kontakt">Kontakt</a>
+            <a href="obchodni-podminky.html">Obchodní podmínky</a>
+          </nav>
+        </div>
+        <div class="header__actions">
+          <a class="header__contact header__contact--phone" href="tel:+420719756746">📞 +420&nbsp;719&nbsp;756&nbsp;746</a>
+          <a class="header__contact header__contact--email" href="mailto:info@ulovklienty.cz">✉️ info@ulovklienty.cz</a>
+          <a class="btn btn--small" href="#kontakt">Domluvit schůzku</a>
+        </div>
       </div>
-
+    </div>
+    <!-- Logo pod lištou, vlastní řádek -->
+    <div class="header__brand-wrap">
       <a class="header__brand" href="#top" aria-label="Domů">
         <img class="header__logo" src="https://haklweb.b-cdn.net/ULOV_KLIENTA/New%20Project.webp" alt="ULOV KLIENTY" width="500" height="220" decoding="async">
       </a>
-
-      <div class="header__actions">
-        <a class="header__contact header__contact--phone" href="tel:+420719756746">📞 +420&nbsp;719&nbsp;756&nbsp;746</a>
-        <a class="header__contact header__contact--email" href="mailto:info@ulovklienty.cz">✉️ info@ulovklienty.cz</a>
-        <a class="btn btn--small" href="#kontakt">Domluvit schůzku</a>
-      </div>
     </div>
   </header>
 
 
   <main id="top">
-    <!-- Horní část webu: hero + triple-section s jedním pozadím (particles) -->
-    <div class="top-section">
-      <div class="top-section__bg" aria-hidden="true"></div>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero__grid">
 
-        <!-- ===== PROMO BANNER (dočasně) ===== -->
-          <div class="promo">
-            <h2 class="promo__title">Otevírací slevy až 50%!</h2>
-            <p class="promo__lead">
-              V prvních týdnech platí startovací ceny pro první klienty. Vyberete si jen to, co opravdu potřebujete — klidně jednu věc.
-            </p>
-
-            <div class="promo__cta">
-              <a class="btn" href="#sluzby">Ukázat služby a ceny</a>
-              <a class="btn btn--ghost" href="#kontakt">Domluvit schůzku</a>
-            </div>
-
-            <p class="promo__tip">
-              Tip: návratnost se často vrátí už na prvních pár poptávkách — a spokojený klient může přivést&nbsp;další.
-            </p>
-            <div class="promo__roi">
-              <label class="promo__label" for="avgSpendPromo">Průměrná hodnota jedné poptávky / zakázky (Kč)</label>
-              <div class="promo__inputrow">
-                <input
-                  id="avgSpendPromo"
-                  class="promo__input"
-                  name="avgSpendPromo"
-                  inputmode="numeric"
-                  value="7000"
-                  placeholder="Např. 7000"
-                  aria-label="Průměrná hodnota jedné poptávky nebo zakázky v Kč"
-                />
-                <span class="promo__unit">Kč</span>
-              </div>
-              <p class="promo__hint">
-                Poradce: 5 000–20 000&nbsp;Kč • Řemeslo: 8 000–50 000&nbsp;Kč • Služby: 1 000–5 000&nbsp;Kč
-              </p>
-            </div>
-          </div>
-
-          
-          <!-- ===== /PROMO BANNER ===== -->
-
-
-
-        <div>
-          <p class="badge">Jednoduché • levné • s dobrou návratností</p>
-
-          <h1>
-            Získejte víc poptávek z internetu – 
-            <span class="accent">Hlavně pro menší firmy (1–10 lidí)</span>
-          </h1>
-
-          <p class="sublead">
-            Pomáháme finančním poradcům, řemeslníkům a lokálním službám dát do pořádku
-            Google profil, web a kontaktní cestu tak, aby vám lidé volali nebo psali.
-            Bez zbytečné reklamy. Jen to, co má návratnost.
-          </p>
-
-          <p class="lead">
-            Pomáháme firmám být dohledatelné online i offline: 
-            <ul>
-              <li><strong>Google vyhledávání & Mapy</strong></li>
-              <li>Levný a funkční <strong>WEB</strong> cílený na poptávky, volání a zakázky.</li>
-              <li><strong>Firemní katalogy</strong> (Firmy.cz, Seznam…)</li>
-              <li><strong>Sociální sítě</strong> – jen pokud dávají smysl vašemu oboru</li>
-              <li><strong>Offline minimum</strong> (vizitky, QR, jednoduché akce)</li>
-            </ul> 
-            Zkrátka <strong>celková vizitka firmy</strong>.
-          </p>
-
-          <div class="cta">
-            <a class="btn" href="#kontakt">Chci první schůzku</a>
-            <a class="btn btn--ghost" href="#sluzby">Ukázat služby + ceny</a>
-          </div>
-
-          <div class="hero__proof">
-            <div class="proof">
-              <div class="proof__num">Online / osobně</div>
-              <div class="proof__txt">První schůzka může být klidně online</div>
-            </div>
-            <div class="proof">
-              <div class="proof__num">Analýza 1500 Kč</div>
-              <div class="proof__txt">Zdarma, pokud si objednáte služby v minimální hodnotě 3000 Kč.</div>
-            </div>
-            <div class="proof">
-              <div class="proof__num">Je to na vás</div>
-              <div class="proof__txt">Vy určíte, co si uděláte sami a co necháte na nás</div>
-            </div>
+    <!-- 1. HERO – čistý, silný, bubliny vpravo -->
+    <section class="hero-bubble">
+      <div class="hero-bubble__bg" aria-hidden="true"></div>
+      <div class="container hero-bubble__grid">
+        <div class="hero-bubble__copy">
+          <h1 class="hero-bubble__title">Klienti vás najdou. A vyberou si právě vás.</h1>
+          <p class="hero-bubble__lead">Pomáháme malým firmám a specialistům nastavit Google, web a kontaktní cestu tak, aby jejich online prezentace působila profesionálně a přinášela reálné zakázky.</p>
+          <div class="hero-bubble__cta">
+            <a class="btn" href="#kontakt">Domluvit schůzku</a>
+            <a class="btn btn--ghost" href="#ceny">Služby a ceny</a>
           </div>
         </div>
-
-        <aside class="card" aria-label="Rychlá diagnostika">
-          <h2 class="card__title">Když je klientů málo, často stačí pár úprav</h2>
-          <p class="card__desc">Ne drahá reklama — ale dotažený základ.</p>
-
-          <div class="list">
-            <div class="item"><span class="dot"></span><span>Google profil není dotažený (popis, fotky, tlačítka, kontakty)</span></div>
-            <div class="item"><span class="dot"></span><span>Lidi nenajdou jasnou cestu: zavolat / napsat / rezervovat</span></div>
-            <div class="item"><span class="dot"></span><span>Web/online vizitka nevede k poptávce (chybí struktura a CTA)</span></div>
-            <div class="item"><span class="dot"></span><span>Není jasné, proč má klient zvolit právě vás</span></div>
-          </div>
-
-          <a class="btn btn--small" href="#kontakt">Chci analýzu</a>
-          <p class="small">Nezávazně • srozumitelně • rychle</p>
-        </aside>
+        <div class="hero-bubble__photo">
+          <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/upravena_foto_hakl.webp" alt="" width="400" height="400" loading="eager" decoding="async">
+        </div>
       </div>
     </section>
 
-    <!-- Pro koho | Obrázek | Návratnost – 3 sloupce, hodně nahoru -->
-    <section id="navratnost" class="section triple-section">
-      <div class="container triple-section__grid">
-        <div class="triple-section__left">
-          <h2 class="triple-section__title">Pro koho to děláme</h2>
-          <ul class="triple-section__list">
-            <li>Finanční poradci a makléři</li>
-            <li>Řemeslníci (elektro, topení, stavební práce, servis)</li>
-            <li>Lokální služby (úklid, autodetailing, masáže, servis)</li>
-            <li>Salony a beauty služby</li>
+    <!-- 2. Poznáváte se? – 2×3 = 6 karet -->
+    <section id="poznavate-se" class="sec sec--light">
+      <div class="container">
+        <h2 class="sec__title">Poznáváte se?</h2>
+        <div class="cards-2x2">
+          <article class="card-pain">
+            <span class="card-pain__icon" aria-hidden="true">🔎</span>
+            <p class="card-pain__problem">Lidi vás najdou, ale nezavolají.</p>
+            <p class="card-pain__effect">Ztrácíte zakázky každý den.</p>
+          </article>
+          <article class="card-pain">
+            <span class="card-pain__icon" aria-hidden="true">📍</span>
+            <p class="card-pain__problem">Google profil vypadá nedokončeně.</p>
+            <p class="card-pain__effect">Klient raději klikne na konkurenci.</p>
+          </article>
+          <article class="card-pain">
+            <span class="card-pain__icon" aria-hidden="true">🌐</span>
+            <p class="card-pain__problem">Web nevede k volání ani k poptávce.</p>
+            <p class="card-pain__effect">Investice se nevrací.</p>
+          </article>
+          <article class="card-pain">
+            <span class="card-pain__icon" aria-hidden="true">📘</span>
+            <p class="card-pain__problem">Máte jen Facebook – a tím to končí.</p>
+            <p class="card-pain__effect">Pro většinu zákazníků jste prakticky nedohledatelní.</p>
+          </article>
+          <article class="card-pain">
+            <span class="card-pain__icon" aria-hidden="true">⭐</span>
+            <p class="card-pain__problem">Klient si vás vyhledá… ale nemá jistotu.</p>
+            <p class="card-pain__effect">Vaše prezentace nepůsobí profesionálně.</p>
+            <p class="card-pain__note">(tohle je klíčové pro poradce)</p>
+          </article>
+          <article class="card-pain">
+            <span class="card-pain__icon" aria-hidden="true">⏳</span>
+            <p class="card-pain__problem">Nevíte, kde začít a co má smysl.</p>
+            <p class="card-pain__effect">Odkládáte to – a konkurence je o krok napřed.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Co přesně upravíme – 6 bublinových karet -->
+    <section id="sluzby" class="sec sec--white">
+      <div class="container">
+        <h2 class="sec__title">Co přesně upravíme</h2>
+        <p class="sec__intro">Online prezentace pro finanční poradce, řemeslníky a malé firmy. Vyberete si jen to, co potřebujete.</p>
+        <div class="bubble-grid">
+          <article class="bubble-card">
+            <h3 class="bubble-card__title">Google</h3>
+            <p>Profil a Mapy tak, aby lidé našli správné info a klikli na zavolat nebo trasu.</p>
+            <p class="bubble-card__benefit">Rychlá viditelnost v okolí.</p>
+            <a href="#kontakt" class="bubble-card__link">Upravit Google →</a>
+          </article>
+          <article class="bubble-card">
+            <h3 class="bubble-card__title">Web</h3>
+            <p>Funkční web cílený na poptávky, volání a zakázky. Rychlý a přehledný.</p>
+            <p class="bubble-card__benefit">Jedna jasná vizitka firmy.</p>
+            <a href="#kontakt" class="bubble-card__link">Chci web →</a>
+          </article>
+          <article class="bubble-card">
+            <h3 class="bubble-card__title">Firemní katalogy</h3>
+            <p>Firmy.cz, Seznam a další. Sjednocené údaje, fotky, popisy a odkazy.</p>
+            <p class="bubble-card__benefit">Všude stejné a správné údaje.</p>
+            <a href="#kontakt" class="bubble-card__link">Dát do pořádku →</a>
+          </article>
+          <article class="bubble-card">
+            <h3 class="bubble-card__title">Rezervační cesta</h3>
+            <p>Formulář, kalendář nebo WhatsApp — podle toho, co vašemu oboru sedí.</p>
+            <p class="bubble-card__benefit">Zákazník ví, jak vás oslovit.</p>
+            <a href="#kontakt" class="bubble-card__link">Nastavit cestu →</a>
+          </article>
+          <article class="bubble-card">
+            <h3 class="bubble-card__title">Sociální sítě</h3>
+            <p>Facebook, Instagram — úprava profilu a CTA. Jen pokud to vašemu oboru dává smysl.</p>
+            <p class="bubble-card__benefit">Konzistentní vizitka.</p>
+            <a href="#kontakt" class="bubble-card__link">Upravit profily →</a>
+          </article>
+          <article class="bubble-card">
+            <h3 class="bubble-card__title">Offline minimum</h3>
+            <p>Vizitky, QR kódy, jednoduché akce. Marketing pro řemeslníky i služby.</p>
+            <p class="bubble-card__benefit">Levně a s efektem.</p>
+            <a href="#kontakt" class="bubble-card__link">Offline detaily →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Důvěra – 50/50 foto + text -->
+    <section id="duvera" class="sec sec--trust">
+      <div class="container trust-grid">
+        <div class="trust__photo">
+          <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/point_star.webp" alt="Konzultace" width="640" height="360" loading="lazy" />
+        </div>
+        <div class="trust__content">
+          <h2 class="sec__title">Proč s námi</h2>
+          <p class="trust__text">Pomáháme malým firmám a živnostníkům být dohledatelní a získat poptávky z internetu. Bez agenturních experimentů — jen to, co má smysl a návratnost.</p>
+          <ul class="trust__list">
+            <li>Žádné agenturní experimenty</li>
+            <li>Vy si určíte rozsah</li>
+            <li>Transparentní ceny</li>
           </ul>
         </div>
-        <div class="triple-section__center" aria-hidden="true">
-          <img
-            src="https://haklweb.b-cdn.net/ULOV_KLIENTA/geralt-feedback-3083100_1280.jpg"
-            srcset="https://haklweb.b-cdn.net/ULOV_KLIENTA/geralt-feedback-3083100_1280.jpg 1280w"
-            sizes="(max-width: 768px) 100vw, (max-width: 1020px) 85vw, 380px"
-            alt=""
-            width="1280"
-            height="720"
-            loading="lazy"
-          />
-        </div>
-        <div class="triple-section__right">
-          <h2 class="triple-section__title">Návratnost, která dává smysl</h2>
-          <p class="triple-section__text">
-            Návratnost není jen o tom, že zákazník napíše jednou a už ho neuvidíte.
-            Cíl je, aby se <b>pravidelně vracel</b> — když dostane kvalitní službu a bude se vám s ním dobře pracovat.
-            Navíc může dát recenzi, která přivede další zájemce. A často to nekončí jen u něj:
-            příště může doporučit kolegu, známého nebo rodinu.
-            Jeden spokojený zákazník může rozjet <b>lavinový efekt</b> — a ten už není o hodnotě jedné zakázky,
-            ale o jeho opakovaných poptávkách a o lidech, které přivede.
-          </p>
-        </div>
       </div>
     </section>
-    </div><!-- /top-section -->
 
-    <!-- HOW -->
-    <section id="jak" class="section">
+    <!-- 5. Jak spolupráce probíhá – 3 kruhy -->
+    <section id="jak" class="sec sec--light">
       <div class="container">
-        <div class="section__head">
-          <h2>Jak to funguje</h2>
-          <p>Jednoduše. První schůzka může být online. Nejprve uděláme analýzu a doporučíme 3–5 kroků s nejrychlejším efektem.</p>
-        </div>
-
-        <div class="steps">
-          <article class="step">
-            <div class="step__icon">1</div>
+        <h2 class="sec__title">Jak spolupráce probíhá</h2>
+        <div class="steps-circles">
+          <article class="step-circle">
+            <div class="step-circle__num">1</div>
             <h3>Analýza</h3>
-            <p>Rychle projdeme váš stav (Google, web, kontakty, sítě, rezervace). Najdeme 3–5 bodů s nejrychlejším efektem.</p>
+            <p>Projdeme váš stav a najdeme 3–5 kroků s nejrychlejším efektem.</p>
           </article>
-
-          <article class="step">
-            <div class="step__icon">2</div>
-            <h3>Ukážeme řešení</h3>
-            <p>Dostanete jasný plán: co udělat hned, co může počkat. A hlavně: co si uděláte sami vs. co uděláme my.</p>
+          <article class="step-circle">
+            <div class="step-circle__num">2</div>
+            <h3>Plán</h3>
+            <p>Jasný plán: co hned, co později. Co sami, co my.</p>
           </article>
-
-          <article class="step">
-            <div class="step__icon">3</div>
-            <h3>Uděláme jen to, co chcete</h3>
-            <p>Vyberete si služby (klidně jen jednu). My je uděláme rychle, rozumně a bez zbytečných nákladů.</p>
+          <article class="step-circle">
+            <div class="step-circle__num">3</div>
+            <h3>Realizace</h3>
+            <p>Uděláme jen to, co chcete. Rychle a bez zbytečných nákladů.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Obrázek těsně nad „S čím umíme pomoci“ -->
-    <div class="container section-before-sluzby">
-      <div class="section-before-sluzby__img-wrap" aria-hidden="true">
-        <img
-          src="https://haklweb.b-cdn.net/ULOV_KLIENTA/support_wood.webp"
-          srcset="https://haklweb.b-cdn.net/ULOV_KLIENTA/support_wood.webp 1280w"
-          sizes="(max-width: 620px) 100vw, (max-width: 1020px) 90vw, 1180px"
-          alt=""
-          width="1280"
-          height="720"
-          loading="lazy"
-        />
-      </div>
-    </div>
-
-    <!-- SERVICES + PRICES IN TILES -->
-    <section id="sluzby" class="section">
+    <!-- 6. Ceny – 3 boxy + individuální -->
+    <section id="ceny" class="sec sec--white">
       <div class="container">
-        <div class="section__head">
-          <h2>S čím umíme pomoci</h2>
-          <p>✔ Můžete využít jen jednu věc, nebo vše. Níže jsou ceny pro otevírací akci.</p>
+        <h2 class="sec__title">Služby a ceny</h2>
+        <p class="sec__intro">Rozumné řešení s návratností. Vyberete si jen to, co potřebujete.</p>
+        <div class="pricing-boxes">
+          <article class="price-box">
+            <h3 class="price-box__name">START</h3>
+            <p class="price-box__what">Analýza + úpravy Google nebo jeden modul</p>
+            <p class="price-box__who">Pro ty, kdo chtějí začít malým krokem</p>
+            <p class="price-box__price">od 1 500 Kč</p>
+            <a href="#kontakt" class="btn btn--small">Domluvit</a>
+          </article>
+          <article class="price-box price-box--main">
+            <h3 class="price-box__name">RŮST</h3>
+            <p class="price-box__what">Web + Google + katalogy nebo rezervace</p>
+            <p class="price-box__who">Pro firmy, které chtějí viditelnost a poptávky</p>
+            <p class="price-box__price">od 4 000 Kč</p>
+            <a href="#kontakt" class="btn">Domluvit</a>
+          </article>
+          <article class="price-box">
+            <h3 class="price-box__name">KOMPLET</h3>
+            <p class="price-box__what">Celková vizitka: web, Google, sítě, offline</p>
+            <p class="price-box__who">Pro ty, kdo chtějí vše na jednom místě</p>
+            <p class="price-box__price">od 15 000 Kč</p>
+            <a href="#kontakt" class="btn btn--small">Domluvit</a>
+          </article>
         </div>
-
-        <div class="grid">
-
-
-          <!-- CELKOVÁ VIZITKA -->
-          <article class="tile">
-            <div class="tile__top">
-              <div class="icon">✔</div>
-              <div>
-                <h3>Analýza vizitky firmy</h3>
-                <p>Ideální kombinace: Google + web + sítě + rezervace + offline minimum. Vyberete si jen to, co chcete.</p>
-              </div>
-            </div>
-
-            <div class="list" style="margin-top:12px;">
-              <div class="item"><span class="dot"></span><span>Analýza celkově: <s>2000 Kč</s> • <b>nyní: 1500 Kč</b></span></div>
-              <div class="item"><span class="dot"></span><span>Zdarma, pokud si objednáte služby v minimální hodnotě <b>3000 Kč</b>.</span></div>
-            </div>
-
-            <p class="small" style="margin-top:12px;" data-roi-cost="1500">
-              <b>Návratnost:</b> Při průměrné hodnotě jedné poptávky/zakázky <b><span data-roi-spend>7000</span> Kč</b>,
-              budete mít zpět nejpozději po <b><span data-roi-visits>3</span></b> poptávkách/zakázkách.
-            </p>
-          </article>
-
-
-
-          <!-- GOOGLE -->
-          <article class="tile">
-            <div class="tile__top">
-              <div class="icon">G</div>
-              <div>
-                <h3>Google vyhledávání</h3>
-                <p>Úpravy profilu tak, aby lidé našli správné informace a klikli na „zavolat“ / „trasa“.</p>
-              </div>
-            </div>
-
-            <div class="list" style="margin-top:12px;">
-              <div class="item">
-                <span class="dot"></span>
-                <span>Jednoduché úpravy: <s>500 Kč</s> • <b>nyní: 350 Kč</b></span>
-              </div>
-              <div class="item">
-                <span class="dot"></span>
-                <span>Složité úpravy: <s>1000 Kč</s> • <b>nyní: 700 Kč</b></span>
-              </div>
-              <div class="item">
-                <span class="dot"></span>
-                <span>Kompletní tvorba: <s>1500 Kč</s> • <b>nyní: 1000 Kč</b></span>
-              </div>
-            </div>
-
-            <p class="small" style="margin-top:12px;" data-roi-cost="350">
-              <b>Návratnost:</b> Při průměrné hodnotě jedné poptávky/zakázky <b><span data-roi-spend>7000</span> Kč</b>,
-              budete mít zpět nejpozději po <b><span data-roi-visits>1</span></b> poptávce/zakázce.
-            </p>
-          </article>
-
-          <!-- FIREMNÍ KATALOGY -->
-          <article class="tile">
-            <div class="tile__top">
-              <div class="icon">📍</div>
-              <div>
-                <h3>Firemní katalogy (Firmy.cz, Seznam)</h3>
-                <p>Sjednocení údajů, fotky, popisy služeb, odkazy a odstranění duplicit.</p>
-              </div>
-            </div>
-          </article>
-
-          <!-- WEB -->
-          <article class="tile">
-            <div class="tile__top">
-              <div class="icon">W</div>
-              <div>
-                <h3>WEB</h3>
-                <p>Web na míru. Rychlý, responzivní a postavený tak, aby vedl k volání, zprávám nebo rezervacím.</p>
-              </div>
-            </div>
-
-            <div class="list" style="margin-top:12px;">
-              <div class="item">
-                <span class="dot"></span>
-                <span>Jednostránkový (bez dynamiky, minimum obrázků): <s>6000 Kč</s> • <b>nyní: 4000 Kč</b></span>
-              </div>
-              <div class="item">
-                <span class="dot"></span>
-                <span>Jednostránkový (min. dynamika, více obrázků): <s>7500 Kč</s> • <b>nyní: 5000 Kč</b></span>
-              </div>
-              <div class="item">
-                <span class="dot"></span>
-                <span>Vícestránkový s dynamikou: <s>7500 Kč</s> • <b>nyní: 5000 Kč</b> + <b>750 Kč</b> / stránka</span>
-              </div>
-              <div class="item">
-                <span class="dot"></span>
-                <span>Extrémně komplexní (video, fotogalerie, &gt; 5 stránek): <s>15000 Kč</s> • <b>nyní: 10000 Kč</b></span>
-              </div>
-              <div class="item"><span class="dot"></span><span>Zbytek dle domluvy.</span></div>
-            </div>
-
-            <p class="small" style="margin-top:12px;" data-roi-cost="4000">
-              <b>Návratnost:</b> Při průměrné hodnotě jedné poptávky/zakázky <b><span data-roi-spend>7000</span> Kč</b>,
-              budete mít zpět nejpozději po <b><span data-roi-visits>6</span></b> poptávkách/zakázkách.
-            </p>
-          </article>
-
-          <!-- FACEBOOK -->
-          <article class="tile">
-            <div class="tile__top">
-              <div class="icon">FB</div>
-              <div>
-                <h3>Facebook</h3>
-                <p>Úprava profilu, kontakty, popisek, tlačítka a základní nastavení, aby lidé rychle zavolali nebo napsali.</p>
-              </div>
-            </div>
-
-            <div class="list" style="margin-top:12px;">
-              <div class="item"><span class="dot"></span><span>Jednoduché úpravy: <s>500 Kč</s> • <b>nyní: 350 Kč</b></span></div>
-              <div class="item"><span class="dot"></span><span>Složité úpravy: <s>1000 Kč</s> • <b>nyní: 700 Kč</b></span></div>
-              <div class="item"><span class="dot"></span><span>Kompletní tvorba: <s>1500 Kč</s> • <b>nyní: 1000 Kč</b></span></div>
-            </div>
-
-            <p class="small" style="margin-top:12px;" data-roi-cost="350">
-              <b>Návratnost:</b> Při průměrné hodnotě jedné poptávky/zakázky <b><span data-roi-spend>7000</span> Kč</b>,
-              budete mít zpět nejpozději po <b><span data-roi-visits>1</span></b> poptávce/zakázce.
-            </p>
-          </article>
-
-          <!-- INSTAGRAM -->
-          <article class="tile">
-            <div class="tile__top">
-              <div class="icon">IG</div>
-              <div>
-                <h3>Instagram</h3>
-                <p>Profil, bio, odkaz a jednoduchá struktura obsahu. Jen pokud to vašemu oboru sedí a má to smysl.</p>
-              </div>
-            </div>
-
-            <div class="list" style="margin-top:12px;">
-              <div class="item"><span class="dot"></span><span>Jednoduché úpravy: <s>500 Kč</s> • <b>nyní: 350 Kč</b></span></div>
-              <div class="item"><span class="dot"></span><span>Složité úpravy: <s>1000 Kč</s> • <b>nyní: 700 Kč</b></span></div>
-              <div class="item"><span class="dot"></span><span>Kompletní tvorba: <s>1500 Kč</s> • <b>nyní: 1000 Kč</b></span></div>
-            </div>
-
-            <p class="small" style="margin-top:12px;" data-roi-cost="350">
-              <b>Návratnost:</b> Při průměrné hodnotě jedné poptávky/zakázky <b><span data-roi-spend>7000</span> Kč</b>,
-              budete mít zpět nejpozději po <b><span data-roi-visits>1</span></b> poptávce/zakázce.
-            </p>
-          </article>
-
-          <!-- OBJEDNÁVKY / POPTÁVKY -->
-          <article class="tile">
-            <div class="tile__top">
-              <div class="icon">⏱</div>
-              <div>
-                <h3>Objednávky / poptávky</h3>
-                <p>
-                  Nastavíme jednoduchou cestu: formulář, telefon, WhatsApp nebo kalendář –
-                  podle toho, co vašemu oboru dává smysl.
-                </p>
-              </div>
-            </div>
-
-            <div class="list" style="margin-top:12px;">
-              <div class="item"><span class="dot"></span><span>Nastavení (formulář, Reservio, kalendář…): <s>750 Kč</s> • <b>nyní: 500 Kč</b></span></div>
-            </div>
-
-            <p class="small" style="margin-top:12px;" data-roi-cost="500">
-              <b>Návratnost:</b> Při průměrné hodnotě jedné poptávky/zakázky <b><span data-roi-spend>7000</span> Kč</b>,
-              budete mít zpět nejpozději po <b><span data-roi-visits>1</span></b> poptávce/zakázce.
-            </p>
-          </article>
-
-          <!-- OFFLINE -->
-          <article class="tile">
-            <div class="tile__top">
-              <div class="icon">OFF</div>
-              <div>
-                <h3>Offline marketing</h3>
-                <p>Vizitky, akce, QR a chytré doplňky do provozovny. Levně, rychle, s efektem.</p>
-              </div>
-            </div>
-
-            <div class="list" style="margin-top:12px;">
-              <div class="item"><span class="dot"></span><span>Příprava vizitek (200 ks): <s>450 Kč</s> • <b>nyní: 300 Kč</b></span></div>
-              <div class="item"><span class="dot"></span><span>Vizitky s akcí včetně grafiky (200 ks): <s>450 Kč</s> • <b>nyní: 300 Kč</b></span></div>
-              <div class="item"><span class="dot"></span><span>Letáky s akcí (200 ks): <s>450 Kč</s> • <b>nyní: 300 Kč</b></span></div>
-              <div class="item"><span class="dot"></span><span>QR stojan: <s>300 Kč</s> • <b>nyní: 200 Kč</b></span></div>
-              <div class="item"><span class="dot"></span><span>Google NFC Tag: <s>250 Kč</s> • <b>nyní: 150 Kč</b></span></div>
-            </div>
-
-            <p class="small" style="margin-top:12px;" data-roi-cost="150">
-              <b>Návratnost:</b> Při průměrné hodnotě jedné poptávky/zakázky <b><span data-roi-spend>7000</span> Kč</b>,
-              budete mít zpět nejpozději po <b><span data-roi-visits>1</span></b> poptávce/zakázce.
-            </p>
-          </article>
-
-          <!-- CELKOVÝ BALÍČEK -->
-          <article class="tile">
-            <div class="tile__top">
-              <div class="icon">✔</div>
-              <div>
-                <h3>CELKOVÝ BALÍČEK</h3>
-                <p>Pokud bychom měli vše dělat od nuly a na maximum a nic byste si nechtěli dělat sami. A chtěli All Inclusive službu.</p>
-              </div>
-            </div>
-
-            <div class="list" style="margin-top:12px;">
-              <div class="item"><span class="dot"></span><span>All Inclusive: <s>20000 Kč</s> • <b>nyní: 15000 Kč</b></span></div>
-            </div>
-
-            <p class="small" style="margin-top:12px;" data-roi-cost="15000">
-              <b>Návratnost:</b> Při průměrné hodnotě jedné poptávky/zakázky <b><span data-roi-spend>7000</span> Kč</b>,
-              budete mít zpět nejpozději po <b><span data-roi-visits>3</span></b> poptávkách/zakázkách.
-            </p>
-          </article>
-          
-        </div>
+        <p class="pricing-note">Individuální služby (Google / Web / FB / IG / katalogy…) vždy podle domluvy. Analýza 1 500 Kč, zdarma při objednávce služeb min. 3 000 Kč.</p>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="kontakt" class="section">
+    <!-- 7. Silné CTA -->
+    <section id="cta" class="sec sec--dark">
+      <div class="container cta-final">
+        <h2 class="cta-final__title">Chcete víc poptávek?</h2>
+        <p class="cta-final__lead">Začněme analýzou.</p>
+        <a class="btn btn--large" href="#kontakt">Domluvit schůzku</a>
+        <a class="cta-final__phone" href="tel:+420719756746">+420 719 756 746</a>
+      </div>
+    </section>
+
+    <!-- KONTAKT – formulář -->
+    <section id="kontakt" class="sec sec--light section">
       <div class="container">
         <div class="section__head">
           <h2>Domluvit první schůzku</h2>

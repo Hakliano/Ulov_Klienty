@@ -15,7 +15,12 @@
     }
 
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html{
+      scroll-behavior:smooth;
+      scroll-padding-top: 230px;
+    }
+    @media (max-width: 1020px){ html{ scroll-padding-top: 185px; } }
+    @media (max-width: 480px){ html{ scroll-padding-top: 170px; } }
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
@@ -31,7 +36,7 @@
     @media (max-width: 480px){ .container{padding:0 16px} }
     @media (max-width: 480px){ .container{padding:0 14px} }
 
-    /* ===== HEADER – moderní layout, logo uprostřed ===== */
+    /* ===== HEADER – navigační lišta nahoře, logo pod ní ===== */
     .header .container{ padding-left: 20px; padding-right: 20px; }
     @media (max-width: 480px){ .header .container{ padding-left: 16px; padding-right: 16px; } }
 
@@ -45,17 +50,23 @@
       overflow: visible;
     }
 
-    .header__inner{
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
+    /* Tenká lišta: menu vlevo, kontakt vpravo */
+    .header__bar{
+      border-bottom: 1px solid rgba(11,42,60,.06);
+      padding: 12px 0;
+      min-height: 44px;
+      display: flex;
       align-items: center;
-      gap: 20px 32px;
-      padding: 0;
+    }
+    .header__bar-inner{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
       max-width: 1200px;
       margin: 0 auto;
-      min-height: 0;
+      padding: 0 20px;
     }
-
     .header__left{
       display: flex;
       align-items: center;
@@ -63,13 +74,18 @@
       min-width: 0;
     }
 
-    .header__brand{
+    /* Logo na vlastním řádku pod lištou */
+    .header__brand-wrap{
       display: flex;
+      justify-content: center;
+      padding: 16px 20px;
+    }
+    .header__brand{
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
       color: inherit;
-      justify-self: center;
       line-height: 0;
     }
 
@@ -87,13 +103,15 @@
     }
     .header__brand:hover .header__logo{ transform: scale(1.02); }
 
+    /* V liště: kontakt a CTA v jednom řádku */
     .header__actions{
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
       gap: 8px;
       min-width: 0;
+      flex-shrink: 0;
     }
 
     .menu{
@@ -106,14 +124,17 @@
       padding: 0;
     }
     .menu a{
-      font-size: 14px;
+      font-size: 13px;
       color: #3E5566;
-      padding: 8px 14px;
+      padding: 6px 12px;
       border-radius: 999px;
       border: 1px solid transparent;
       font-weight: 500;
+      white-space: nowrap;
       transition: color .15s ease, background .15s ease, border-color .15s ease;
     }
+    .header__bar .header__contact{ padding: 6px 12px; font-size: 12px; }
+    .header__bar .btn--small{ padding: 8px 12px; font-size: 13px; }
     .menu a:hover{
       color: #0B2A3C;
       background: rgba(11,42,60,.06);
@@ -557,9 +578,8 @@
       transform:translateY(-7px) rotate(-45deg);
     }
 
-    /* Responsive – tablet a menší: hamburger, logo zůstává uprostřed */
+    /* Responsive – tablet a menší: hamburger v liště, logo pod */
     @media (max-width: 1020px){
-      .header__inner{ grid-template-columns: auto 1fr auto; gap: 16px; padding: 0; }
       .header__left{ flex-wrap: wrap; }
       .nav-toggle{ display:flex }
       .menu{
@@ -572,7 +592,7 @@
         border-top:1px solid rgba(11,42,60,.1);
         margin-top:8px;
       }
-      .header__inner:has(.nav-toggle-input:checked) .header__left{ grid-column: 1 / -1; }
+      .header__bar-inner:has(.nav-toggle-input:checked) .header__left{ width: 100%; }
       .nav-toggle-input:checked ~ .menu{ display:flex }
       .menu a{
         display:block;
@@ -631,6 +651,8 @@
     @media (max-width: 480px){
       h1{font-size:28px}
       h2{font-size:26px}
+      .header__bar-inner{ padding: 0 14px; }
+      .header__brand-wrap{ padding: 12px 14px; }
       .header__logo{height:112px;max-width:240px;margin:0}
       .btn{padding:12px 16px; font-size:14px; white-space:normal; min-height:48px}
       .btn--small{padding:10px 12px; font-size:13px}
@@ -800,6 +822,415 @@
 #formStatus{
   margin:0;
 }
+
+/* ========== BUBLINOVÝ PRODEJNÍ GRID – nový layout ========== */
+body{ background: #f0f2f5; color: #1a2332; }
+.sec{
+  padding: var(--s56) 0;
+}
+.sec__title{
+  margin: 0 0 var(--s16);
+  font-size: 28px;
+  letter-spacing: -0.4px;
+  color: var(--navy);
+  text-align: center;
+}
+.sec__intro{
+  margin: 0 auto var(--s32);
+  max-width: 52ch;
+  font-size: 17px;
+  color: #4a5568;
+  line-height: 1.5;
+  text-align: center;
+}
+.sec--light{ background: #e8ecf0; }
+.sec--white{ background: #fff; }
+.sec--dark{ background: var(--navy); color: var(--text); }
+.sec--dark .sec__title{ color: var(--text); }
+
+/* 1. HERO BUBBLE */
+.hero-bubble{
+  position: relative;
+  padding: var(--s48) 0 var(--s56);
+  background: var(--navy);
+  color: var(--text);
+  overflow: hidden;
+}
+.hero-bubble__bg{
+  position: absolute;
+  inset: 0;
+  background-image: url("https://haklweb.b-cdn.net/ULOV_KLIENTA/geralt-particles-7055781_1280.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  pointer-events: none;
+}
+.hero-bubble__bg::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(11,42,60,.85) 0%, rgba(11,42,60,.75) 100%);
+  pointer-events: none;
+}
+.hero-bubble__grid{
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s48);
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+.hero-bubble__title{
+  margin: 0 0 var(--s16);
+  font-size: 38px;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  color: #fff;
+}
+.hero-bubble__lead{
+  margin: 0 0 var(--s28);
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 42ch;
+  line-height: 1.5;
+}
+.hero-bubble__cta{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hero-bubble__cta .btn--ghost{
+  border-color: rgba(255,255,255,.35);
+  color: #fff;
+}
+.hero-bubble__cta .btn--ghost:hover{
+  background: rgba(255,255,255,.1);
+}
+.hero-bubble__photo{
+  max-width: 320px;
+  margin-left: auto;
+}
+.hero-bubble__photo img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 50%;
+  box-shadow: 0 8px 32px rgba(0,0,0,.25);
+  border: 3px solid rgba(255,255,255,.25);
+}
+
+/* 2. POZNÁVÁTE SE? – 2x2 karty */
+.cards-2x2{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s24);
+  margin-top: var(--s24);
+}
+.card-pain{
+  background: #fff;
+  border-radius: var(--radius);
+  padding: var(--s28);
+  box-shadow: 0 4px 24px rgba(11,42,60,.08);
+  border: 1px solid rgba(11,42,60,.06);
+}
+.card-pain__icon{
+  display: block;
+  font-size: 28px;
+  margin-bottom: var(--s12);
+}
+.card-pain__problem{
+  margin: 0 0 var(--s8);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.35;
+}
+.card-pain__effect{
+  margin: 0;
+  font-size: 15px;
+  color: #718096;
+  line-height: 1.45;
+}
+.card-pain__note{
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: var(--gold);
+  font-style: italic;
+  line-height: 1.35;
+}
+
+/* 3. BUBLINOVÉ KARTY – Co přesně upravíme */
+.bubble-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s24);
+  margin-top: var(--s28);
+}
+.bubble-card{
+  background: #fff;
+  border-radius: var(--radius);
+  padding: var(--s24);
+  border: 1px solid rgba(11,42,60,.08);
+  box-shadow: 0 4px 20px rgba(11,42,60,.06);
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+.bubble-card:hover{
+  box-shadow: 0 8px 32px rgba(11,42,60,.1);
+  border-color: rgba(201,162,74,.25);
+}
+.bubble-card__title{
+  margin: 0 0 var(--s12);
+  font-size: 18px;
+  color: var(--navy);
+  letter-spacing: -0.2px;
+}
+.bubble-card p{
+  margin: 0 0 var(--s8);
+  font-size: 14px;
+  color: #4a5568;
+  line-height: 1.5;
+}
+.bubble-card__benefit{
+  font-size: 13px !important;
+  color: var(--gold) !important;
+  font-weight: 600;
+}
+.bubble-card__link{
+  display: inline-block;
+  margin-top: var(--s12);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  text-decoration: none;
+  transition: color .15s ease;
+}
+.bubble-card__link:hover{ color: var(--navy); }
+
+/* 4. DŮVĚRA – 50/50 */
+.sec--trust{
+  background: linear-gradient(180deg, #fff 0%, #f5f7f9 100%);
+  border-top: 3px solid var(--gold);
+  border-bottom: 1px solid rgba(11,42,60,.08);
+}
+.trust-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s48);
+  align-items: center;
+}
+.trust__photo{
+  border-radius: var(--radius2);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(11,42,60,.15);
+}
+.trust__photo img{
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: middle;
+}
+.trust__content{ padding: 0 var(--s16); }
+.trust__content .sec__title{ text-align: left; margin-bottom: var(--s20); }
+.trust__text{
+  margin: 0 0 var(--s24);
+  font-size: 17px;
+  color: #4a5568;
+  line-height: 1.6;
+}
+.trust__list{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 16px;
+  color: var(--navy);
+  font-weight: 600;
+  line-height: 1.6;
+}
+.trust__list li{
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: var(--s12);
+}
+.trust__list li::before{
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* 5. JAK SPOLUPRÁCE – 3 kruhy */
+.steps-circles{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s32);
+  margin-top: var(--s32);
+  text-align: center;
+}
+.step-circle{
+  padding: var(--s24);
+}
+.step-circle__num{
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, var(--gold), #b8923f);
+  color: #0b1114;
+  font-weight: 900;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--s16);
+  box-shadow: 0 6px 20px rgba(201,162,74,.35);
+}
+.step-circle h3{
+  margin: 0 0 var(--s8);
+  font-size: 18px;
+  color: var(--navy);
+}
+.step-circle p{
+  margin: 0;
+  font-size: 15px;
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+/* 6. CENY – 3 boxy */
+.pricing-boxes{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s24);
+  margin-top: var(--s32);
+  align-items: stretch;
+}
+.price-box{
+  background: #fff;
+  border: 1px solid rgba(11,42,60,.1);
+  border-radius: var(--radius2);
+  padding: var(--s28);
+  text-align: center;
+  box-shadow: 0 4px 24px rgba(11,42,60,.06);
+}
+.price-box--main{
+  border-color: var(--gold);
+  box-shadow: 0 8px 40px rgba(201,162,74,.2);
+  transform: scale(1.02);
+}
+.price-box__name{
+  margin: 0 0 var(--s16);
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+}
+.price-box__what,
+.price-box__who{
+  margin: 0 0 var(--s8);
+  font-size: 14px;
+  color: #4a5568;
+  line-height: 1.5;
+}
+.price-box__price{
+  margin: var(--s20) 0 var(--s20);
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--gold);
+}
+.price-box .btn{ margin-top: 0; }
+.pricing-note{
+  margin: var(--s32) 0 0;
+  padding: var(--s20);
+  background: rgba(11,42,60,.04);
+  border-radius: var(--radius);
+  font-size: 14px;
+  color: #4a5568;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* 7. SILNÉ CTA */
+.cta-final{
+  text-align: center;
+  padding: var(--s48) 22px;
+}
+.cta-final__title{
+  margin: 0 0 var(--s8);
+  font-size: 32px;
+  color: #fff;
+  letter-spacing: -0.4px;
+}
+.cta-final__lead{
+  margin: 0 0 var(--s28);
+  font-size: 18px;
+  color: var(--muted);
+}
+.cta-final .btn--large{
+  padding: 18px 32px;
+  font-size: 17px;
+}
+.cta-final__phone{
+  display: inline-block;
+  margin-top: var(--s20);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  text-decoration: none;
+  transition: opacity .2s ease;
+}
+.cta-final__phone:hover{ opacity: .9; }
+
+/* Responzivita – bublinový grid */
+@media (max-width: 900px){
+  .hero-bubble__grid{ grid-template-columns: 1fr; gap: var(--s32); text-align: center; }
+  .hero-bubble__lead{ margin-left: auto; margin-right: auto; }
+  .hero-bubble__cta{ justify-content: center; }
+  .hero-bubble__photo{ margin: 0 auto; }
+  .bubble-grid{ grid-template-columns: repeat(2, 1fr); }
+  .trust-grid{ grid-template-columns: 1fr; }
+  .trust__content .sec__title{ text-align: center; }
+  .trust__photo{ order: -1; }
+  .steps-circles{ grid-template-columns: 1fr; }
+  .pricing-boxes{ grid-template-columns: 1fr; }
+  .price-box--main{ transform: none; }
+}
+@media (max-width: 620px){
+  .cards-2x2{ grid-template-columns: 1fr; }
+  .bubble-grid{ grid-template-columns: 1fr; }
+  .hero-bubble__title{ font-size: 28px; }
+  .sec__title{ font-size: 24px; }
+  .cta-final__title{ font-size: 26px; }
+}
+
+/* Kontaktní sekce ve světlém layoutu */
+.sec--light .card{
+  background: #fff;
+  border-color: rgba(11,42,60,.1);
+  box-shadow: 0 4px 24px rgba(11,42,60,.08);
+  color: #1a2332;
+}
+.sec--light .card h3{ color: var(--navy); }
+.sec--light input,
+.sec--light textarea,
+.sec--light select{
+  background: #f5f7f9;
+  color: #1a2332;
+  border-color: rgba(11,42,60,.2);
+}
+.sec--light .kpi{
+  background: #fff;
+  border-color: rgba(11,42,60,.1);
+  color: #1a2332;
+}
+.sec--light .kpi h3{ color: var(--navy); }
+.sec--light .kpi .k span{ color: #4a5568; }
+.sec--light .note{ color: #4a5568; }
+.sec--light .kpi__smlouva a{ color: var(--gold); }
+.sec--light .section__head h2{ color: var(--navy); }
+.sec--light .section__head p{ color: #4a5568; }
 
 
 
