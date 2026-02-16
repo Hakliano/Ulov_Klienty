@@ -435,6 +435,17 @@
     .price ul{margin:14px 0 0;padding:0 0 0 18px;color:var(--muted);line-height:1.7}
     .price li{margin:8px 0}
     .note{margin-top:14px;font-size:12.8px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+    .note--contact{font-size:1rem;line-height:1.6}
+    .note__title{display:block;margin:0 0 10px;color:var(--text);font-size:1.05rem}
+    .note__row{margin:8px 0;padding:0}
+    .note__link{color:var(--text);text-decoration:underline;text-underline-offset:3px}
+    .note__link:hover{color:var(--gold)}
+    @media (max-width: 640px){
+      .note--contact{font-size:1.05rem;padding-top:18px;margin-top:18px}
+      .note__title{font-size:1.1rem;margin-bottom:12px}
+      .note__row{margin:10px 0}
+      .note__link{font-size:1.05rem;padding:2px 0;display:inline-block;min-height:44px;line-height:40px}
+    }
 
     /* Contact */
     .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--s20);align-items:start}
@@ -463,13 +474,21 @@
     .kpi .k b{color:var(--gold)}
     .kpi .k span{color:var(--muted);line-height:1.5}
     .kpi__smlouva{
-      margin:14px 0 0;
-      padding:0;
-      font-size:0.75rem;
-      color:var(--muted);
+      display:block;
+      margin:18px 0 0;
+      padding:14px 16px;
+      font-size:0.95rem;
+      color:var(--text);
+      line-height:1.5;
+      text-decoration:none;
+      background: rgba(201,162,74,.08);
+      border:1px solid rgba(201,162,74,.25);
+      border-radius:12px;
+      transition: background .2s, border-color .2s;
     }
-    .kpi__smlouva a{color:var(--gold);text-decoration:underline}
-    .kpi__smlouva a:hover{opacity:.9}
+    .kpi__smlouva:hover{ background: rgba(201,162,74,.14); border-color: rgba(201,162,74,.4); }
+    @media (max-width: 640px){ .kpi__smlouva{ font-size:1rem; margin-top:20px; padding:16px; } }
+    .kpi__smlouva-label{ color:var(--gold); font-weight:600; text-decoration:underline; text-underline-offset:3px; }
 
     /* ====== Patička ====== */
     .site-footer {
@@ -1228,7 +1247,12 @@ body{ background: #f0f2f5; color: #1a2332; }
 .sec--light .kpi h3{ color: var(--navy); }
 .sec--light .kpi .k span{ color: #4a5568; }
 .sec--light .note{ color: #4a5568; }
-.sec--light .kpi__smlouva a{ color: var(--gold); }
+.sec--light .note__title{ color: var(--navy); }
+.sec--light .note__link{ color: #1a2332; }
+.sec--light .note__link:hover{ color: var(--gold); }
+.sec--light .kpi__smlouva{ color: #1a2332; background: rgba(201,162,74,.12); border-color: rgba(201,162,74,.35); }
+.sec--light .kpi__smlouva:hover{ background: rgba(201,162,74,.18); }
+.sec--light .kpi__smlouva-label{ color: var(--gold); }
 .sec--light .section__head h2{ color: var(--navy); }
 .sec--light .section__head p{ color: #4a5568; }
 
