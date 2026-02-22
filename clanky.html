@@ -5,42 +5,39 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Články — ULOV KLIENTY | Web a marketing pro malé firmy</title>
   <link rel="stylesheet" href="assets/css/main.css?v=2">
-  <meta name="description" content="Články o webu, online marketingu a prezentaci pro malé firmy, finanční poradce a živnostníky. Tipy, které přinášejí poptávky." />
+  <meta name="description" content="Články o webu, online marketingu a prezentaci pro malé firmy, finanční poradce, řemeslníky a salony. Tipy, které přinášejí poptávky." />
 </head>
 
 <body>
-  <header class="header">
-    <div class="header__bar">
-      <div class="container header__bar-inner">
-        <div class="header__left">
-          <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true" hidden />
-          <label for="nav-toggle" class="nav-toggle" aria-label="Otevřít nebo zavřít menu">
-            <span class="nav-toggle__bar"></span>
-            <span class="nav-toggle__bar"></span>
-            <span class="nav-toggle__bar"></span>
-          </label>
-          <nav class="menu" aria-label="Hlavní navigace">
-            <a href="index.html">Domů</a>
-            <a href="index.html#kontakt">Kontakt</a>
-            <a href="obchodni-podminky.html">Obchodní podmínky</a>
-          </nav>
-        </div>
-        <div class="header__actions">
-          <a class="header__contact header__contact--phone" href="tel:+420719756746">📞 +420&nbsp;719&nbsp;756&nbsp;746</a>
-          <a class="header__contact header__contact--email" href="mailto:info@ulovklienty.cz">✉️ info@ulovklienty.cz</a>
-          <a class="btn btn--small" href="index.html#kontakt">Domluvit schůzku</a>
-        </div>
+  <header class="header header--two-rows">
+    <div class="header__inner container">
+      <div class="header__brand-wrap">
+        <a class="header__brand" href="index.html" aria-label="Domů">
+          <img class="header__logo" src="https://haklweb.b-cdn.net/ULOV_KLIENTA/New%20Project.webp" alt="ULOV KLIENTY" width="500" height="220" decoding="async">
+        </a>
       </div>
-    </div>
-    <div class="header__brand-wrap">
-      <a class="header__brand" href="index.html" aria-label="Domů">
-        <img class="header__logo" src="https://haklweb.b-cdn.net/ULOV_KLIENTA/New%20Project.webp" alt="ULOV KLIENTY" width="500" height="220" decoding="async">
-      </a>
+      <div class="header__actions">
+        <a class="header__contact header__contact--phone" href="tel:+420719756746">📞 +420&nbsp;719&nbsp;756&nbsp;746</a>
+        <a class="header__contact header__contact--email" href="mailto:info@ulovklienty.cz">✉️ info@ulovklienty.cz</a>
+      </div>
+      <div class="header__nav">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true" hidden />
+        <label for="nav-toggle" class="nav-toggle" aria-label="Otevřít nebo zavřít menu">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </label>
+        <nav class="menu" aria-label="Hlavní navigace">
+          <a href="index.html">Domů</a>
+          <a href="index.html#kontakt">Kontakt</a>
+          <a href="clanky.html">Články</a>
+          <a href="obchodni-podminky.html">Obchodní podmínky</a>
+        </nav>
+      </div>
     </div>
   </header>
 
   <main id="top">
-    <!-- Úvod stránky článků -->
     <section class="hero-bubble hero-bubble--small">
       <div class="hero-bubble__bg" aria-hidden="true"></div>
       <div class="container hero-bubble__grid hero-bubble__grid--center">
@@ -51,90 +48,49 @@
       </div>
     </section>
 
-    <!-- Seznam článků -->
     <section class="sec sec--light">
       <div class="container container--narrow">
+        <!-- Filtr: tlačítka, ne odkazy, JS filtr bez reloadu -->
+        <div class="articles-filter" role="group" aria-label="Filtr článků podle tématu">
+          <button type="button" class="articles-filter__btn is-active" data-filter="all">Všechny</button>
+          <button type="button" class="articles-filter__btn" data-filter="poradce">Finanční poradci</button>
+          <button type="button" class="articles-filter__btn" data-filter="remeslo">Řemeslné služby</button>
+          <button type="button" class="articles-filter__btn" data-filter="salon">Salony</button>
+        </div>
+
         <div class="articles-list">
-
-          <!-- Článek 1: Web pro malé podnikatele -->
-          <article class="article-card" id="web-pro-male-podnikatele">
-            <h2 class="article-card__title">Proč je web důležitý pro malé podnikatele</h2>
-            <div class="article-card__img">
-              <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/point_star.webp" alt="Konzultace a plánování" width="640" height="360" loading="lazy">
-            </div>
-            <div class="article-card__teaser">
-              <p>Bez webu vás zákazníci často ani nenajdou — nebo si vyberou konkurenci, která působí důvěryhodněji. Malá firma nebo živnostník potřebuje jednu jasnou vizitku: kde vás najít, co děláte a jak vás kontaktovat.</p>
-              <p>Web nemusí být složitý. Stačí přehledné stránky, funkční kontakt a důraz na to, co lidé hledají ve vašem oboru. Investice se vrací v podobě konkrétních poptávek a volání.</p>
-            </div>
-            <details class="article-card__details">
-              <summary class="article-card__summary">Číst dál</summary>
-              <div class="article-card__body">
-                <p>Když vás někdo vyhledá na Googlu, první dojem rozhoduje. Rozbitý nebo zastaralý web, chybějící telefon nebo otevírací doba — to všechno odrazuje. Naopak přehledný web s jasnou nabídkou a CTA („Zavolejte“, „Napište“, „Rezervujte si termín“) zvyšuje šanci, že se z návštěvníka stane zákazník.</p>
-                <p>Pro řemeslníky, poradce i lokální služby platí: web je základ. Doplňuje ho Google profil, katalogy a sociální sítě. Začněte webbem a kontaktní cestou; zbytek můžete budovat postupně. Chcete poradit, co má smysl jako první krok? Rádi pro vás připravíme analýzu a plán na míru.</p>
-              </div>
-            </details>
-            <a class="btn btn--small article-card__cta" href="index.html#kontakt">Konzultace zdarma zde.</a>
+          <article class="article-card" data-category="poradce">
+            <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/jak%20ziskat%20nove%20klienty.png" alt="Jak získat nové klienty jako finanční poradce" width="640" height="360" loading="lazy">
+            <h2 class="article-card__title">Jak získat nové klienty jako finanční poradce bez doporučení a bez placené reklamy</h2>
+            <p class="article-card__subtitle">Tvrdá realita: pokud dnes nemáte kontrolu nad svou online prezentací, ztrácíte klienty ještě před první schůzkou.</p>
+            <p class="article-card__excerpt">Většina finančních poradců dnes neztrácí klienty na schůzkách, ale při online prověřování. Klient si vás téměř vždy zadá do Googlu ještě před tím, než se rozhodne reagovat. Pokud nemáte vlastní web a jasnou online stopu, působíte méně důvěryhodně než konkurence. Stabilní přísun nových klientů bez reklamy je možný – ale vyžaduje systematickou online prezentaci.<br><strong>🎁 Na konci článku najdete jednu praktickou radu, kterou můžete aplikovat hned dnes.</strong></p>
+            <a href="clanky/jak-ziskat-nove-klienty-financni-poradce.html" class="btn btn--small article-card__cta">Číst celý článek</a>
           </article>
-
-          <!-- Článek 2: Online marketing pro small business -->
-          <article class="article-card" id="online-marketing-small-business">
-            <h2 class="article-card__title">Online marketing pro malé firmy (small business)</h2>
-            <div class="article-card__teaser">
-              <p>Online marketing nemusí znamenat obří rozpočty na reklamu. Pro malé firmy často stačí srovat základy: Google profil, web, jednotné údaje v katalozích a jasná výzva k akci.</p>
-              <p>Klíč je soustředit se na to, co přináší návratnost — vyhledávání v okolí, doporučení a přímý kontakt. Sociální sítě a placená reklama mohou přijít později, až když máte základ v pořádku.</p>
-            </div>
-            <details class="article-card__details">
-              <summary class="article-card__summary">Číst dál</summary>
-              <div class="article-card__body">
-                <p>Mnoho malých firem dělá chybu v tom, že chtějí hned „běžet reklamu“ na Facebooku nebo Googlu, ale jejich web nebo Google profil není připraven na příjem zákazníků. Výsledkem jsou vyhozené peníze za kliky, které nevedou k volání ani k objednávce.</p>
-                <p>Nejdřív tedy: funkční web, kompletní a aktuální Google profil (Mapy, údaje, fotky), stejné údaje na Firmy.cz, Seznamu a jinde. Až potom má smysl přidat cílenou reklamu nebo pravidelný obsah na sociálních sítích. Online marketing pro small business je hlavně o pořádku a důvěryhodnosti — ne o množství kanálů.</p>
-              </div>
-            </details>
-            <a class="btn btn--small article-card__cta" href="index.html#kontakt">Konzultace zdarma zde.</a>
+          <article class="article-card" data-category="poradce">
+            <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/noWEB_noTrust.webp" alt="Proč finanční poradce potřebuje vlastní web" width="640" height="360" loading="lazy">
+            <h2 class="article-card__title">Proč finanční poradce potřebuje vlastní web (a proč sociální sítě nestačí)</h2>
+            <p class="article-card__subtitle">Facebook ani LinkedIn nejsou váš majetek. A to je problém, pokud na nich stavíte svou důvěryhodnost.</p>
+            <p class="article-card__excerpt">Sociální sítě nejsou vaše vlastní platforma. Klienti dnes očekávají, že profesionál má vlastní web. Web vytváří kontrolu nad prezentací a buduje důvěru. Bez webu působíte méně stabilně než konkurence.<br><strong>🦉 Na konci článku najdete jednoduché srovnání: svépomocné řešení vs. profesionální web.</strong></p>
+            <a href="clanky/proc-financni-poradce-potrebuje-vlastni-web.html" class="btn btn--small article-card__cta">Číst celý článek</a>
           </article>
-
-          <!-- Článek 3: Webová prezentace pro finanční poradce -->
-          <article class="article-card" id="web-financni-poradce">
-            <h2 class="article-card__title">Webová prezentace pro finanční poradce</h2>
-            <div class="article-card__img">
-              <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/upravena_foto_hakl.webp" alt="Profesionální prezentace" width="400" height="400" loading="lazy">
-            </div>
-            <div class="article-card__teaser">
-              <p>Finanční poradce řeší důvěru na první pohled. Klient hledá někoho, kdo působí seriózně a srozumitelně. Web a Google profil jsou často první místo, kde vás potenciální klient „zkouší“.</p>
-              <p>Důležité je mít jednotný vzhled, jasnou nabídku služeb, kontakt a případně reference nebo certifikáty. Nepotřebujete složité e-shopy — potřebujete vizitku, která přesvědčí.</p>
-            </div>
-            <details class="article-card__details">
-              <summary class="article-card__summary">Číst dál</summary>
-              <div class="article-card__body">
-                <p>Když si někdo vyhledá „finanční poradce“ ve svém okolí, uvidí desítky profilů. Rozhoduje fotka, popis, recenze a to, zda je na první kliknutí zřejmé, že jde o živého člověka s konkrétní nabídkou. Rozbitý nebo prázdný web působí špatně; přehledný web s vaší fotkou, specializací a kontaktem naopak zvyšuje šanci na schůzku.</p>
-                <p>Doporučujeme propojit web s Google profilem a katalogy tak, aby všude byly stejné údaje a odkaz na rezervaci nebo na telefon. Mnoho poradců zbytečně ztrácí zájemce tím, že kontakt není na jednom místě nebo že web vypadá nedůvěryhodně. Malá investice do prezentace se v tomto oboru vrací velmi rychle.</p>
-              </div>
-            </details>
-            <a class="btn btn--small article-card__cta" href="index.html#kontakt">Konzultace zdarma zde.</a>
+          <article class="article-card" data-category="poradce">
+            <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/vizitky.webp" alt="Jak získat klienty na finanční služby bez studených kontaktů" width="640" height="360" loading="lazy">
+            <h2 class="article-card__title">Jak získat klienty na finanční služby bez studených kontaktů</h2>
+            <p class="article-card__subtitle">Recenze, Google profil a chytrý offline marketing. Vizitky nejsou jen pro 19. století.</p>
+            <p class="article-card__excerpt">Studené telefonáty slábnou. Důvěra dnes vzniká jinak – online i offline zároveň. Většina poradců přichází o klienty, protože neumí pracovat s recenzemi a offline nástroji. Spokojený klient je nejlevnější zdroj dalších kontaktů.<br><strong>📋 Na konci článku najdete jednoduchý model, jak z každého klienta vytvořit další kontakt.</strong></p>
+            <a href="clanky/jak-ziskat-klienty-financni-sluzby-bez-studeny-ch-kontaktu.html" class="btn btn--small article-card__cta">Číst celý článek</a>
           </article>
-
-          <!-- Článek 4: Offline marketing -->
-          <article class="article-card" id="offline-marketing-letaky-vizitky">
-            <h2 class="article-card__title">Nezapomínejte na offline marketing: letáky, vizitky a další</h2>
-            <div class="article-card__teaser">
-              <p>Online je důležitý, ale řada zákazníků stále objevuje firmy přes vizitky, letáky, výlohy nebo doporučení od známých. Offline a online by měly fungovat společně.</p>
-              <p>Vizitka s QR kódem na web nebo na rezervaci, leták s jednotným designem a kontaktem, nálepka na autě — to všechno posiluje dojem značky a vede lidi zpět na váš web nebo telefon.</p>
-            </div>
-            <details class="article-card__details">
-              <summary class="article-card__summary">Číst dál</summary>
-              <div class="article-card__body">
-                <p>Pro řemeslníky a lokální služby platí dvojnásob: zákazník vás často najde přes známého nebo vylepený leták. Pokud na vizitce nebo letáku chybí web nebo odkaz na Google, ztratíte snadno kontakt. Jednoduché řešení: na každý tiskový materiál dát URL webu, telefon a případně QR kód na rezervační stránku nebo na váš Google profil.</p>
-                <p>Offline marketing nemusí být drahý. Stačí konzistentní vizuál (barvy, logo), jednotné údaje všude a propojení s online — aby ten, kdo si vezme vizitku, mohl hned pokračovat na webu. I malý rozpočet na vizitky a pár letáků může výrazně podpořit to, co děláte na internetu.</p>
-              </div>
-            </details>
-            <a class="btn btn--small article-card__cta" href="index.html#kontakt">Konzultace zdarma zde.</a>
+          <article class="article-card" data-category="poradce">
+            <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/katalogy.webp" alt="Proč by se měl finanční poradce registrovat v online katalozích" width="640" height="360" loading="lazy">
+            <h2 class="article-card__title">Proč by se měl finanční poradce registrovat v online katalozích (a které dávají smysl)</h2>
+            <p class="article-card__subtitle">Katalog není zdroj klientů. Je to základ důvěry a viditelnosti.</p>
+            <p class="article-card__excerpt">Online katalogy nejsou primárně zdroj leadů – pomáhají budovat důvěru a online autoritu. Bez zápisů může váš web působit slabě. Zdarma zápisy jsou základ; placené jen v konkrétních případech.<br><strong>🎁 Jako dárek na konci článku najdete kompletní seznam nutných i doporučených katalogů, kde byste měli být zaregistrovaní.</strong></p>
+            <a href="clanky/proc-financni-poradce-registrovat-online-katalogy.html" class="btn btn--small article-card__cta">Číst celý článek</a>
           </article>
-
         </div>
       </div>
     </section>
 
-    <!-- CTA na konci -->
     <section class="sec sec--dark">
       <div class="container cta-final">
         <h2 class="cta-final__title">Chcete poradit s webem nebo prezentací?</h2>
@@ -147,12 +103,17 @@
 
   <footer class="site-footer">
     <div class="container foot-between">
-      <p>© <span id="y"></span>    ULOV KLIENTY</p>
+      <p>© <span id="y"></span> ULOV KLIENTY</p>
       <div class="credits">
         <span>Vytvořeno Jiřím Haklem • </span>
-        <a href="https://www.ulovsalon.cz" target="_blank">www.ulovsalon.cz</a>
-        <a href="https://www.ulovsalon.cz" target="_blank" class="footer-logo">
-          <img src="https://haklweb.b-cdn.net/maryana/ulov_salon.webp" alt="ULOV KLIENTY logo">
+        <a href="https://www.ulovklienty.cz" target="_blank" rel="noopener">www.ulovklienty.cz</a>
+        <a href="https://www.ulovklienty.cz" target="_blank" rel="noopener" class="footer-logo" aria-label="ULOV KLIENTY – náš web">
+          <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/New%20Project.webp" alt="ULOV KLIENTY">
+        </a>
+        <span> • </span>
+        <a href="https://www.ulovsalon.cz" target="_blank" rel="noopener">www.ulovsalon.cz</a>
+        <a href="https://www.ulovsalon.cz" target="_blank" rel="noopener" class="footer-logo" aria-label="ULOV SALON – partnerský web">
+          <img src="https://haklweb.b-cdn.net/maryana/ulov_salon.webp" alt="ULOV SALON">
         </a>
       </div>
     </div>
@@ -172,5 +133,6 @@
 
   <script src="assets/js/cookies.js" defer></script>
   <script src="assets/js/year.js" defer></script>
+  <script src="assets/js/articles-filter.js" defer></script>
 </body>
 </html>
