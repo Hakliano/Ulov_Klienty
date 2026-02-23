@@ -16,8 +16,9 @@
 
   function filterCards(value) {
     cards.forEach(function (card) {
-      var cat = card.getAttribute('data-category');
-      var show = value === 'all' || cat === value;
+      var cat = card.getAttribute('data-category') || '';
+      var categories = cat.split(/\s+/).filter(Boolean);
+      var show = value === 'all' || (categories.length && categories.indexOf(value) !== -1);
       card.style.display = show ? '' : 'none';
     });
   }

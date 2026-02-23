@@ -1,0 +1,158 @@
+================================================================================
+JAK DODÁVAT ČLÁNEK — ULOV KLIENTY
+================================================================================
+(Instrukce pro autory / redakci. Aktualizováno podle stavu projektu.)
+
+--------------------------------------------------------------------------------
+1. CO PŘIPRAVIT PŘED DODÁNÍM
+--------------------------------------------------------------------------------
+
+• Název souboru článku: pouze malá písmena, pomlčky (bez diakritiky).
+  Příklad: proc-financni-poradce-registrovat-online-katalogy.html
+
+• Obrázek článku:
+  - min. 960×540 px (poměr 16:9), ideálně webp
+  - nahraj na CDN a pošli URL (např. haklweb.b-cdn.net/…)
+  - pro kartu na clanky.html se používá stejný obrázek (zobrazí se zmenšený)
+
+• Meta popis (description): 1–2 věty pro vyhledávače, max cca 155 znaků.
+
+--------------------------------------------------------------------------------
+2. MINIATURA (KARTA NA CLANKY.HTML A V CAROUSELECH)
+--------------------------------------------------------------------------------
+
+Na jednu kartu článku potřebujeme tyto texty v tomto pořadí:
+
+  1. NADPIS (h2)
+     — Celý název článku, jak má být vidět na kartě.
+     — Jedna řádka, výstižně.
+
+  2. PODNADPIS (subtitle)
+     — Jedna krátká věta: o čem článek je / hlavní message.
+     — Např.: "Katalog není zdroj klientů. Je to základ důvěry a viditelnosti."
+
+  3. EXCERPT (delší popis + hook)
+     — 2–4 věty: co čtenář v článku získá.
+     — Na konci vždy HOOK: co dostane navíc (dárek, rada, seznam…).
+     — Hook piš do nového odstavce a zvýrazni, např.:
+       "🎁 Na konci článku najdete kompletní seznam katalogů…"
+     — V HTML se hook často dává do <strong>.</strong>
+
+  4. ODKAZ
+     — Cíl: clanky/nazev-clanku.html (bez úvodního lomítka).
+
+Struktura karty (pro implementaci):
+  obrázek → nadpis (h2) → podnadpis → excerpt (včetně hooku) → tlačítko „Číst celý článek“.
+
+--------------------------------------------------------------------------------
+3. STRUKTURA SAMOTNÉHO ČLÁNKU (STRÁNKA V /clanky/)
+--------------------------------------------------------------------------------
+
+Článek jde v tomto pořadí. Každý blok je povinný, kromě těch označených (volitelné).
+
+  A) HLAVIČKA STRÁNKY (head)
+     — title: "Název článku | ULOV KLIENTY"
+     — meta description (viz bod 1)
+     — link rel="canonical" href="https://ulovklienty.cz/clanky/NAZEV-SOUBORU.html"
+
+  B) BREADCRUMBS
+     Domů / Články / [zkrácený název článku – max cca 50 znaků]
+
+  C) NADPIS A PODNADPIS
+     — h1: plný název článku (stejný jako na kartě).
+     — jeden odstavec: podnadpis (subtitle) – jedna věta.
+
+  D) TOP-ŘÁDEK (obrázek + V kostce)
+     — Levý sloupec: úvodní obrázek článku (960×540, width="960" height="540").
+     — Pravý sloupec: blok „V kostce“:
+       - nadpis h2: „V kostce“
+       - nečíslovaný seznam (ul/li): 4–7 bodů, co čtenář v článku získá.
+       - poslední bod může být hook (např. „🎁 Na konci článku…“).
+
+  E) PRVNÍ BLOK OBSAHU (article-single__body)
+     — Nadpisy h2 pro jednotlivé sekce.
+     — Odstavce (p), seznamy (ul/li), případně h3 pod sekcemi.
+     — Krátké odstavce, výstižné body.
+
+  F) MINI CTA (uprostřed článku)
+     — Blok „Chcete…?“ (aside s třídou article-mini-cta):
+       - h3: otázka / výzva (např. „Chcete mít online základy nastavené správně?“)
+       - 1–2 odstavce: co nabízíte, proč to dává smysl.
+       - jedno tlačítko: odkaz na ../index.html#kontakt (nebo jiný CTA cíl).
+     — Text CTA přizpůsob tématu článku.
+
+  G) DÁLE OBSAH
+     — Další h2/h3, odstavce, seznamy.
+     — Sekce typu „Jedna rada zdarma“, „Dárek“, „Seznam“… podle slibu v hooku.
+
+  H) CTA TLAČÍTKO V TEXTU
+     — Jedno výrazné tlačítko (např. „Nechat si pomoct“) s odkazem na ../index.html#kontakt.
+
+  I) VELKÝ CTA BLOK (sekce za článkem)
+     — Nadpis h2: obecná výzva (např. „Chcete zjistit, kde dnes ztrácíte klienty?“).
+     — Krátký odstavec: co nabízíte (konzultace, analýza…).
+     — Jedno tlačítko (např. „Nezávazná konzultace“) → ../index.html#kontakt.
+
+  J) CAROUSEL „Další články“
+     — 3 karty na jiné články (ne na ten aktuální). Štítek sekce např. „Další články pro finanční poradce“.
+
+--------------------------------------------------------------------------------
+4. KDE ČLÁNEK ZAREGISTROVAT (technický krok po vytvoření HTML)
+--------------------------------------------------------------------------------
+
+• clanky.html
+  — Přidat novou kartu (article.article-card) do .articles-list.
+  — Atribut data-category: "poradce" | "remeslo" | "salon" (podle tématu).
+  — Na kartu použít: obrázek, nadpis, podnadpis, excerpt, odkaz na nový článek.
+
+• index.html
+  — V carouselu článků přidat jednu kartu na nový článek (odpovídající struktura jako v ostatních kartách).
+
+• Ostatní články (soubory v /clanky/)
+  — V každém článku je carousel „Další články“ se 3 kartami.
+  — Do každého carouselu doplnit odkaz na nový článek (jeden z 3 odkazů nahradit nebo přidat čtvrtou kartu a otočit výběr tak, aby v každém článku byly 3 jiné články včetně nového tam, kde to dává smysl).
+
+• sitemap.xml
+  — Přidat nový <url> s loc https://ulovklienty.cz/clanky/NAZEV-SOUBORU.html, lastmod (datum), changefreq monthly, priority 0.8.
+
+--------------------------------------------------------------------------------
+5. KONTROLNÍ SEZNAM PŘED ODEVZDÁNÍM
+--------------------------------------------------------------------------------
+
+  [ ] Soubor článku je v složce clanky/ a má správný název (malá písmena, pomlčky).
+  [ ] V <head> jsou: title, meta description, canonical (https://ulovklienty.cz/…).
+  [ ] h1 a podnadpis odpovídají kartě na clanky.html.
+  [ ] Obrázek má správnou URL a rozměry (960×540).
+  [ ] Blok „V kostce“ má seznam bodů a případně hook.
+  [ ] Uprostřed textu je mini CTA (aside.article-mini-cta).
+  [ ] Na konci textu je CTA tlačítko a pak velký CTA blok (article-cta).
+  [ ] Carousel „Další články“ obsahuje 3 odkazy na jiné články.
+  [ ] Na clanky.html je přidaná karta s data-category.
+  [ ] Na index.html je přidaná karta v carouselu článků.
+  [ ] V ostatních článcích je v carouselu zařazen odkaz na nový článek (kde je to vhodné).
+  [ ] Do sitemap.xml je doplněn záznam pro nový článek.
+
+--------------------------------------------------------------------------------
+6. ŠABLONA SOUBORU ČLÁNKU
+--------------------------------------------------------------------------------
+
+Jako šablonu zkopíruj existující článek z /clanky/ (např. proc-financni-poradce-registrovat-online-katalogy.html) a přepiš:
+  - title, description, canonical (název souboru)
+  - breadcrumbs (zkrácený název)
+  - h1, podnadpis
+  - URL obrázku a alt
+  - „V kostce“ – body seznamu
+  - celý obsah dvou bloků article-single__body (včetně mini CTA a koncového CTA tlačítka)
+  - text velkého CTA bloku (article-cta)
+  - karty v carouselu (odkazy na 3 jiné články)
+
+Odkazy v článku:
+  - na úvod: ../index.html
+  - na seznam článků: ../clanky.html
+  - na kontakt: ../index.html#kontakt
+  - na obchodní podmínky: ../obchodni-podminky.html
+  - na jiný článek v téže složce: nazev-druheho-clanku.html
+
+================================================================================
+Konec instrukcí.
+================================================================================
