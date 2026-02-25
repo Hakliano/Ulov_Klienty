@@ -1,0 +1,36 @@
+<header class="header header--two-rows">
+  <div class="header__inner container">
+    <div class="header__brand-wrap">
+      <a class="header__brand" href="{% if isHome %}#top{% else %}{{ baseUrl }}index.html{% endif %}" aria-label="Domů">
+        <img class="header__logo" src="https://haklweb.b-cdn.net/ULOV_KLIENTA/New%20Project.webp" alt="ULOV KLIENTY" width="500" height="220" decoding="async">
+      </a>
+    </div>
+    <div class="header__actions">
+      <a class="header__contact header__contact--phone" href="tel:+420719756746">📞 +420&nbsp;719&nbsp;756&nbsp;746</a>
+      <a class="header__contact header__contact--email" href="mailto:info@ulovklienty.cz">✉️ info@ulovklienty.cz</a>
+      <a class="header__contact header__contact--facebook" href="https://www.facebook.com/profile.php?id=61588549975552" target="_blank" rel="noopener" aria-label="Facebook – Jiří Hakl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+    </div>
+    <div class="header__nav">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true" hidden />
+      <label for="nav-toggle" class="nav-toggle" aria-label="Otevřít nebo zavřít menu">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </label>
+      <nav class="menu" aria-label="Hlavní navigace">
+        {% if isHome %}
+        <a href="#sluzby">Co upravíme</a>
+        <a href="#ceny">Ceny</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="clanky.html">Články</a>
+        <a href="obchodni-podminky.html">Obchodní podmínky</a>
+        {% else %}
+        <a href="{{ baseUrl }}index.html">Domů</a>
+        <a href="{{ baseUrl }}index.html#kontakt">Kontakt</a>
+        <a href="{{ baseUrl }}clanky.html">Články</a>
+        <a href="{{ baseUrl }}obchodni-podminky.html">Obchodní podmínky</a>
+        {% endif %}
+      </nav>
+    </div>
+  </div>
+</header>

@@ -1,7 +1,5 @@
-# GitHub Pages – jeden build, jeden artifact (oprava chyby "Multiple artifacts")
-# DŮLEŽITÉ: V této složce .github/workflows/ smažte jakýkoli JINÝ soubor
-# (např. jekyll.yml, static.yml nebo cokoliv, co spouští "pages build and deployment").
-# Dva workflow = více artifactů = deploy padá.
+# GitHub Pages – build Eleventy, deploy _site
+# DŮLEŽITÉ: V .github/workflows/ nemějte jiný workflow pro Pages (jeden build = jeden artifact).
 
 name: pages build and deployment
 
@@ -26,10 +24,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Eleventy
+        run: npm run build
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "."
+          path: "_site"
 
   deploy:
     needs: build

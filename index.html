@@ -1,56 +1,14 @@
-<!doctype html>
-<html lang="cs">
-<head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-44M17LDCB9"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-44M17LDCB9');
-  </script>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="icon" href="https://haklweb.b-cdn.net/ULOV_KLIENTA/favicon.png" type="image/png" />
-  <title>ULOV KLIENTY — Získávejte poptávky z internetu</title>
-  <link rel="stylesheet" href="assets/css/main.css?v=2">
-
-  <meta name="description" content="Získávejte víc poptávek z internetu. Pro finanční poradce, řemeslníky a malé firmy (1–5 lidí). Google, web, katalogy — bez zbytečné reklamy, s návratností." />
-  <link rel="canonical" href="https://ulovklienty.cz/" />
-</head>
-
-<body>
-  <header class="header header--two-rows">
-    <div class="header__inner container">
-      <div class="header__brand-wrap">
-        <a class="header__brand" href="#top" aria-label="Domů">
-          <img class="header__logo" src="https://haklweb.b-cdn.net/ULOV_KLIENTA/New%20Project.webp" alt="ULOV KLIENTY" width="500" height="220" decoding="async">
-        </a>
-      </div>
-      <div class="header__actions">
-        <a class="header__contact header__contact--phone" href="tel:+420719756746">📞 +420&nbsp;719&nbsp;756&nbsp;746</a>
-        <a class="header__contact header__contact--email" href="mailto:info@ulovklienty.cz">✉️ info@ulovklienty.cz</a>
-        <a class="header__contact header__contact--facebook" href="https://www.facebook.com/profile.php?id=61588549975552" target="_blank" rel="noopener" aria-label="Facebook – Jiří Hakl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-      </div>
-      <div class="header__nav">
-        <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true" hidden />
-        <label for="nav-toggle" class="nav-toggle" aria-label="Otevřít nebo zavřít menu">
-          <span class="nav-toggle__bar"></span>
-          <span class="nav-toggle__bar"></span>
-          <span class="nav-toggle__bar"></span>
-        </label>
-        <nav class="menu" aria-label="Hlavní navigace">
-          <a href="#sluzby">Co upravíme</a>
-          <a href="#ceny">Ceny</a>
-          <a href="#kontakt">Kontakt</a>
-          <a href="clanky.html">Články</a>
-          <a href="obchodni-podminky.html">Obchodní podmínky</a>
-        </nav>
-      </div>
-    </div>
-  </header>
-
+---
+layout: layout-base.njk
+permalink: index.html
+title: ULOV KLIENTY — Získávejte poptávky z internetu
+description: Získávejte víc poptávek z internetu. Pro finanční poradce, řemeslníky a malé firmy (1–5 lidí). Google, web, katalogy — bez zbytečné reklamy, s návratností.
+canonical: https://ulovklienty.cz/
+baseUrl: ""
+isHome: true
+carousel: true
+roi: true
+---
 
   <main id="top">
 
@@ -159,73 +117,12 @@
       </div>
     </section>
 
-    <!-- Články – carousel -->
+    <!-- Články – carousel (zdroj: data/clanky.json) -->
     <section class="article-carousel-sec sec sec--light">
       <div class="container">
         <h2 class="article-carousel-sec__title">Články</h2>
-        <div class="article-carousel article-carousel--show-3" data-category="all" data-auto-advance="3000">
-          <div class="article-carousel__track">
-            <!-- Článek: Jak získat nové klienty (vždy první) -->
-            <a href="clanky/jak-ziskat-nove-klienty-financni-poradce.html" class="article-carousel__card">
-              <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/jak%20ziskat%20nove%20klienty.png" alt="Jak získat nové klienty jako finanční poradce" width="320" height="180" loading="lazy">
-              <h3 class="article-carousel__card-title">Jak získat nové klienty jako finanční poradce bez doporučení a bez placené reklamy</h3>
-              <p class="article-carousel__card-subtitle">Tvrdá realita: pokud dnes nemáte kontrolu nad svou online prezentací, ztrácíte klienty ještě před první schůzkou.</p>
-              <p class="article-carousel__card-excerpt">Většina finančních poradců dnes neztrácí klienty na schůzkách, ale při online prověřování. Bez vlastního webu a jasné online stopy působíte méně důvěryhodně než konkurence.</p>
-              <span class="btn btn--small">Číst celý článek</span>
-            </a>
-            <!-- Článek: Jak si požádat o recenzi -->
-            <a href="clanky/jak-si-pozadat-o-recenzi.html" class="article-carousel__card">
-              <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/AskingForReview.webp" alt="Finanční poradce žádá klienta o recenzi" width="320" height="180" loading="lazy">
-              <h3 class="article-carousel__card-title">Jak si požádat o recenzi</h3>
-              <p class="article-carousel__card-subtitle">Praktický a systematický návod pro finanční poradce, kteří chtějí budovat důvěru a dlouhodobě růst.</p>
-              <p class="article-carousel__card-excerpt">Kdy žádat o recenzi, jak formulovat žádost a jak klientům proces zjednodušit včetně QR kódu. Na konci 5 hotových textů + QR systém.</p>
-              <span class="btn btn--small">Číst celý článek</span>
-            </a>
-            <!-- Článek: Jak získat doporučení, když zákazník nechce dát kontakty -->
-            <a href="clanky/jak-ziskat-doporuceni-kdyz-zakaznik-nechce-dat-kontakty.html" class="article-carousel__card">
-              <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/no_refference.webp" alt="Obchodník žádá klienta o doporučení dalších kontaktů" width="320" height="180" loading="lazy">
-              <h3 class="article-carousel__card-title">Jak získat doporučení, když vám zákazník nechce dát kontakty</h3>
-              <p class="article-carousel__card-subtitle">Proč ani spokojený klient často nedá doporučení – a jak to změnit bez nátlaku.</p>
-              <p class="article-carousel__card-excerpt">Výzkumy ukazují, že spokojenost ≠ doporučení. V článku: psychologie doporučení a 7 ověřených strategií. Na konci konkrétní skript k použití.</p>
-              <span class="btn btn--small">Číst celý článek</span>
-            </a>
-            <!-- Článek: Jak reagovat na negativní recenze -->
-            <a href="clanky/jak-reagovat-na-negativni-recenze.html" class="article-carousel__card">
-              <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/recenze.webp" alt="Podnikatel reaguje na negativní online recenzi" width="320" height="180" loading="lazy">
-              <h3 class="article-carousel__card-title">Jak reagovat na negativní recenze (a neztratit klienty)</h3>
-              <p class="article-carousel__card-subtitle">Negativní recenze vás nemusí poškodit. Může vám přivést víc důvěry i nových klientů.</p>
-              <p class="article-carousel__card-excerpt">Negativní hodnocení čte víc lidí než pozitivní. Nejde o to, jestli přijdou – ale jak na ně zareagujete. Na konci článku: 5 konkrétních odpovědí na nejběžnější typy recenzí.</p>
-              <span class="btn btn--small">Číst celý článek</span>
-            </a>
-            <a href="clanky/proc-financni-poradce-potrebuje-vlastni-web.html" class="article-carousel__card">
-              <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/noWEB_noTrust.webp" alt="Proč finanční poradce potřebuje vlastní web" width="320" height="180" loading="lazy">
-              <h3 class="article-carousel__card-title">Proč finanční poradce potřebuje vlastní web (a proč sociální sítě nestačí)</h3>
-              <p class="article-carousel__card-subtitle">Facebook ani LinkedIn nejsou váš majetek. A to je problém, pokud na nich stavíte svou důvěryhodnost.</p>
-              <p class="article-carousel__card-excerpt">Sociální sítě nejsou vaše vlastní platforma. Web vytváří kontrolu nad prezentací a buduje důvěru. Bez webu působíte méně stabilně než konkurence.</p>
-              <span class="btn btn--small">Číst celý článek</span>
-            </a>
-            <a href="clanky/jak-ziskat-klienty-financni-sluzby-bez-studeny-ch-kontaktu.html" class="article-carousel__card">
-              <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/vizitky.webp" alt="Jak získat klienty na finanční služby bez studených kontaktů" width="320" height="180" loading="lazy">
-              <h3 class="article-carousel__card-title">Jak získat klienty na finanční služby bez studených kontaktů</h3>
-              <p class="article-carousel__card-subtitle">Recenze, Google profil a chytrý offline marketing. Vizitky nejsou jen pro 19. století.</p>
-              <p class="article-carousel__card-excerpt">Studené telefonáty slábnou. Důvěra vzniká online i offline. Spokojený klient je nejlevnější zdroj dalších kontaktů.</p>
-              <span class="btn btn--small">Číst celý článek</span>
-            </a>
-            <a href="clanky/proc-financni-poradce-registrovat-online-katalogy.html" class="article-carousel__card">
-              <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/katalogy.webp" alt="Proč by se měl finanční poradce registrovat v online katalozích" width="320" height="180" loading="lazy">
-              <h3 class="article-carousel__card-title">Proč by se měl finanční poradce registrovat v online katalozích (a které dávají smysl)</h3>
-              <p class="article-carousel__card-subtitle">Katalog není zdroj klientů. Je to základ důvěry a viditelnosti.</p>
-              <p class="article-carousel__card-excerpt">Online katalogy budují důvěru a online autoritu. Na konci článku najdete kompletní seznam nutných i doporučených katalogů.</p>
-              <span class="btn btn--small">Číst celý článek</span>
-            </a>
-            <a href="clanky/osobni-znacka-vs-znacka-materske-firmy.html" class="article-carousel__card">
-              <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/JAK_NA_BRAND.webp" alt="Osobní značka vs. značka mateřské firmy" width="320" height="180" loading="lazy">
-              <h3 class="article-carousel__card-title">Osobní značka vs. značka mateřské firmy: co skutečně funguje</h3>
-              <p class="article-carousel__card-subtitle">Jak sladit vlastní identitu s firemním brandem a neudělat z klienta zmateného pozorovatele.</p>
-              <p class="article-carousel__card-excerpt">Budovat vlastní jméno, nebo se držet mateřské značky? Rozhoduje důvěra, konzistence a psychologie barev. Na konci článku: psychologie barev a 5min brand audit.</p>
-              <span class="btn btn--small">Číst celý článek</span>
-            </a>
-          </div>
+        <div class="article-carousel article-carousel--show-3" data-src="/data/clanky.json" data-base="clanky/" data-auto-advance="3000">
+          <div class="article-carousel__track"></div>
           <div class="article-carousel__nav">
             <button type="button" class="article-carousel__prev" aria-label="Předchozí">‹</button>
             <button type="button" class="article-carousel__next" aria-label="Další">›</button>
@@ -409,49 +306,3 @@
       </div>
     </section>
   </main>
-
-  <!-- ===== Patička ===== -->
-  <footer class="site-footer">
-    <div class="container foot-between">
-      <p>© <span id="y"></span>    ULOV KLIENTY</p>
-      <div class="credits">
-        <span>Vytvořeno Jiřím Haklem • </span>
-        <a href="https://www.ulovklienty.cz" target="_blank" rel="noopener">www.ulovklienty.cz</a>
-        <a href="https://www.ulovklienty.cz" target="_blank" rel="noopener" class="footer-logo" aria-label="ULOV KLIENTY – náš web">
-          <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/New%20Project.webp" alt="ULOV KLIENTY">
-        </a>
-        <span> • </span>
-        <a href="https://www.ulovsalon.cz" target="_blank" rel="noopener">www.ulovsalon.cz</a>
-        <a href="https://www.ulovsalon.cz" target="_blank" rel="noopener" class="footer-logo" aria-label="ULOV SALON – partnerský web">
-          <img src="https://haklweb.b-cdn.net/maryana/ulov_salon.webp" alt="ULOV SALON">
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61588549975552" target="_blank" rel="noopener" class="footer-fb" aria-label="Facebook – Jiří Hakl"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-      </div>
-    </div>
-    <p class="footer-legal container"><a href="obchodni-podminky.html">Obchodní podmínky</a></p>
-  </footer>
-
-  <!-- ===== Minimal Cookie Notice (only necessary cookies) ===== -->
-  <div id="cc-mini" class="cc-mini" role="alert" aria-live="polite">
-    <div class="container cc-mini__inner">
-      <p class="cc-mini__text">
-        Používáme pouze nezbytné cookies pro správnou funkci webu.
-        Nesledujeme návštěvníky ani neprovádíme analytiku.
-        <a href="site/cookies.html">Více informací</a>
-      </p>
-      <button class="btn cc-mini__btn" type="button" data-cc-ok>Rozumím</button>
-    </div>
-  </div>
-  <!-- ===== /Minimal Cookie Notice ===== -->
-
-  <script src="assets/js/cookies.js" defer></script>
-  <script src="assets/js/year.js" defer></script>
-  <script src="assets/js/article-carousel.js" defer></script>
-  <!--   <script src="assets/js/form.js" defer></script> -->
-
-
-
-  <!-- NOVÉ: popup + ROI -->
-  <script src="assets/js/roi.js" defer></script>
-</body>
-</html>

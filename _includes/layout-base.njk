@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-44M171DCB9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied'
+    });
+
+    gtag('js', new Date());
+    gtag('config', 'G-44M171DCB9');
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" href="https://haklweb.b-cdn.net/ULOV_KLIENTA/favicon.png" type="image/png" />
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="{{ baseUrl }}assets/css/main.css?v=2">
+  {% if description %}
+  <meta name="description" content="{{ description }}" />
+  {% endif %}
+  {% if canonical %}
+  <link rel="canonical" href="{{ canonical }}" />
+  {% endif %}
+</head>
+<body>
+  {% include "header.njk" %}
+  {{ content | safe }}
+  {% include "footer.njk" %}
+  {% include "cookie-bar.njk" %}
+
+  <script src="{{ baseUrl }}assets/js/cookies.js" defer></script>
+  <script src="{{ baseUrl }}assets/js/year.js" defer></script>
+  {% if carousel %}
+  <script src="{{ baseUrl }}assets/js/article-carousel.js" defer></script>
+  {% endif %}
+  {% if articlesFilter %}
+  <script src="{{ baseUrl }}assets/js/articles-filter.js" defer></script>
+  {% endif %}
+  {% if roi %}
+  <script src="{{ baseUrl }}assets/js/roi.js" defer></script>
+  {% endif %}
+</body>
+</html>
