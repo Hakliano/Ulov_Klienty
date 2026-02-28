@@ -7,11 +7,18 @@
 (function () {
   var cardWidth = 320 + 24;
 
-  function renderCard(article, baseUrl) {
+  function renderCard(article, baseUrl, opts) {
+    opts = opts || {};
     var href = (baseUrl || '') + article.slug;
     var subtitle = article.subtitle
       ? '<p class="article-carousel__card-subtitle">' + escapeHtml(article.subtitle) + '</p>'
       : '';
+    var excerpt = article.excerpt || '';
+    if (opts.excerptMax) {
+      var max = parseInt(opts.excerptMax, 10) || 0;
+      if (max > 0 && excerpt.length > max) excerpt = excerpt.slice(0, max).trim() + '…';
+    }
+    var btnText = opts.btnText || 'Číst celý článek';
     return (
       '<a href="' +
       escapeHtml(href) +
@@ -26,9 +33,9 @@
       '</h3>' +
       subtitle +
       '<p class="article-carousel__card-excerpt">' +
-      escapeHtml(article.excerpt) +
+      escapeHtml(excerpt) +
       '</p>' +
-      '<span class="btn btn--small">Číst celý článek</span>' +
+      '<span class="btn btn--small">' + escapeHtml(btnText) + '</span>' +
       '</a>'
     );
   }
@@ -76,7 +83,12 @@
   function runCarousel(carousel) {
     var dataSrc = carousel.getAttribute('data-src');
     var baseUrl = carousel.getAttribute('data-base') || '';
+    var limit = carousel.getAttribute('data-limit');
     var track = carousel.querySelector('.article-carousel__track');
+    var opts = {
+      btnText: carousel.getAttribute('data-btn-text') || 'Číst celý článek',
+      excerptMax: carousel.getAttribute('data-excerpt-max') || ''
+    };
 
     if (dataSrc && track) {
       fetch(dataSrc)
@@ -86,7 +98,11 @@
         })
         .then(function (articles) {
           if (!Array.isArray(articles)) throw new Error('Neplatná data');
-          track.innerHTML = articles.map(function (a) { return renderCard(a, baseUrl); }).join('');
+          if (limit) {
+            var n = parseInt(limit, 10) || 0;
+            if (n > 0) articles = articles.slice(0, n);
+          }
+          track.innerHTML = articles.map(function (a) { return renderCard(a, baseUrl, opts); }).join('');
           initScroll(carousel);
         })
         .catch(function (err) {

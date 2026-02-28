@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="cs" class="lp-page">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-44M171DCB9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied'
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-44M171DCB9');
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" href="https://haklweb.b-cdn.net/ULOV_KLIENTA/favicon.png" type="image/png" />
+  <title>{{ title }}</title>
+  {% if description %}
+  <meta name="description" content="{{ description }}" />
+  {% endif %}
+  {% if noindex %}
+  <meta name="robots" content="noindex, follow" />
+  {% endif %}
+  {% if canonical %}
+  <link rel="canonical" href="{{ canonical }}" />
+  {% endif %}
+  <link rel="stylesheet" href="{{ baseUrl }}assets/css/main.css?v=2">
+</head>
+<body class="lp-body">
+  {% include "header-lp.njk" %}
+  <main id="top">
+    {{ content | safe }}
+  </main>
+  {% include "footer-lp.njk" %}
+  {% include "cookie-bar.njk" %}
+
+  <script src="{{ baseUrl }}assets/js/cookies.js" defer></script>
+  <script src="{{ baseUrl }}assets/js/year.js" defer></script>
+  <script src="{{ baseUrl }}assets/js/form-lp.js" defer></script>
+  <script src="{{ baseUrl }}assets/js/article-carousel.js" defer></script>
+</body>
+</html>

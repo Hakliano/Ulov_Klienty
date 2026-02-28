@@ -1,0 +1,129 @@
+---
+layout: layout-lp.njk
+permalink: pro-poradce/index.html
+title: Konzultace pro finanční poradce — ULOV KLIENTY
+description: Domluvte si konzultaci zdarma. Pomůžeme s webem, recenzemi, viditelností na Googlu i kompletní online prezentací.
+canonical: https://ulovklienty.cz/pro-poradce/
+baseUrl: "../"
+noindex: true
+---
+
+    <!-- 1. HERO -->
+    <section class="hero-bubble lp-hero">
+      <div class="hero-bubble__bg" aria-hidden="true"></div>
+      <div class="container hero-bubble__grid">
+        <div class="hero-bubble__copy">
+          <h1 class="hero-bubble__title">Online prezentace, která přivede klienty. I&nbsp;vám.</h1>
+          <p class="hero-bubble__lead">Pro finanční poradce: web, recenze, viditelnost na Googlu a katalogy. Bez zbytečné reklamy — s návratností. Domluvte si konzultaci zdarma.</p>
+          <div class="hero-bubble__cta lp-hero__cta">
+            <a class="btn" href="tel:+420719756746">Zavolat: +420&nbsp;719&nbsp;756&nbsp;746</a>
+            <a class="btn btn--ghost lp-hero__cta-secondary" href="mailto:info@ulovklienty.cz">Napsat: info@ulovklienty.cz</a>
+          </div>
+        </div>
+        <div class="hero-bubble__photo">
+          <img src="https://haklweb.b-cdn.net/ULOV_KLIENTA/upravena_foto_hakl.webp" alt="" width="400" height="400" loading="eager" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SLUŽBY – 4 bloky vedle sebe (desktop), 2×2 (tablet), 1 sloupec (mobile) -->
+    <section id="sluzby" class="sec sec--light lp-sec">
+      <div class="container">
+        <h2 class="sec__title">S čím vám můžeme pomoci</h2>
+        <div class="lp-services-grid">
+          <article id="web" class="lp-service-card">
+            <h3>Pomoc s webem</h3>
+            <ul class="lp-bullets">
+              <li>Funkční web cílený na poptávky a první kontakt</li>
+              <li>Rychlý a přehledný — jedna jasná vizitka</li>
+              <li>Bez zbytečných experimentů, s návratností</li>
+            </ul>
+            <a class="btn btn--small" href="#lp-form">Domluvit konzultaci zdarma</a>
+          </article>
+
+          <article id="recenze" class="lp-service-card">
+            <h3>Pomoc s recenzemi</h3>
+            <ul class="lp-bullets">
+              <li>Jak si požádat o recenzi a kdy to dává smysl</li>
+              <li>Jak reagovat na negativní hodnocení</li>
+              <li>Recenze jako základ důvěry u nových klientů</li>
+            </ul>
+            <a class="btn btn--small" href="#lp-form">Domluvit konzultaci zdarma</a>
+          </article>
+
+          <article id="viditelnost" class="lp-service-card">
+            <h3>Pomoc s viditelností</h3>
+            <ul class="lp-bullets">
+              <li>Google profil a Mapy — správné údaje a volání</li>
+              <li>Online katalogy (Firmy.cz, Seznam a další)</li>
+              <li>Rychlá viditelnost v okolí bez zbytečné reklamy</li>
+            </ul>
+            <a class="btn btn--small" href="#lp-form">Domluvit konzultaci zdarma</a>
+          </article>
+
+          <article id="komplet" class="lp-service-card">
+            <h3>Kompletní řešení</h3>
+            <ul class="lp-bullets">
+              <li>Web + Google + katalogy + rezervační cesta</li>
+              <li>Celková vizitka na jednom místě</li>
+              <li>Transparentní ceny, vy si určíte rozsah</li>
+            </ul>
+            <a class="btn btn--small" href="#lp-form">Domluvit konzultaci zdarma</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Oddělení obsahu -->
+    <section class="sec sec--light lp-divider">
+      <div class="container">
+        <h2 class="lp-divider__title">Než se rozhodnete, přečtěte si naše články:</h2>
+      </div>
+    </section>
+
+    <!-- 4. Carousel článků -->
+    <section class="article-carousel-sec sec sec--light lp-carousel-sec">
+      <div class="container">
+        <div class="article-carousel article-carousel--show-3 lp-carousel" data-src="../data/clanky.json" data-base="../clanky/" data-limit="6" data-excerpt-max="120" data-btn-text="Číst">
+          <div class="article-carousel__track"></div>
+          <div class="article-carousel__nav">
+            <button type="button" class="article-carousel__prev" aria-label="Předchozí">‹</button>
+            <button type="button" class="article-carousel__next" aria-label="Další">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FORMULÁŘ – hlavní konverze -->
+    <section id="lp-form" class="sec sec--dark lp-form-sec">
+      <div class="container lp-form-sec__inner">
+        <h2 class="lp-form-sec__title">Domluvte si konzultaci zdarma</h2>
+        <p class="lp-form-sec__lead">Ozvěme se vám a probereme, co vám pomůže nejvíc.</p>
+
+        <form id="lpForm" class="lp-form" action="https://formsubmit.co/info@ulovklienty.cz" method="POST">
+          <input type="hidden" name="_next" value="https://ulovklienty.cz/dekujeme.html">
+          <input type="hidden" name="_subject" value="Konzultace – landing pro poradce (ULOV KLIENTY)">
+          <input type="hidden" name="_template" value="table">
+
+          <div class="lp-form__row">
+            <label for="lp-name">Jméno</label>
+            <input id="lp-name" name="name" type="text" required autocomplete="name" placeholder="Vaše jméno">
+          </div>
+          <div class="lp-form__row">
+            <label for="lp-email">E-mail</label>
+            <input id="lp-email" name="email" type="email" required inputmode="email" autocomplete="email" placeholder="vas@email.cz">
+          </div>
+          <div class="lp-form__row">
+            <label for="lp-phone">Telefon <span class="lp-form__optional">(nepovinné)</span></label>
+            <input id="lp-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+420 777 123 456">
+          </div>
+          <div class="lp-form__row">
+            <label for="lp-msg">Zpráva <span class="lp-form__optional">(volitelné)</span></label>
+            <textarea id="lp-msg" name="message" rows="3" placeholder="Stručně, co vás zajímá (web, recenze, viditelnost…)"></textarea>
+          </div>
+
+          <button class="btn btn--large lp-form__submit" type="submit">Domluvit konzultaci zdarma</button>
+          <p class="lp-form__status" id="lpFormStatus" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>

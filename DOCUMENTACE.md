@@ -1,14 +1,16 @@
 # Dokumentace projektu ULOV KLIENTY
 
-**Stav k:** 22. 2. 2026  
+**Stav k:** 25. 2. 2026  
 **Doména:** ulovklienty.cz (CNAME), kanonická URL: https://ulovklienty.cz (bez www)  
-**Hosting:** GitHub Pages (workflow: `.github/workflows/deploy-pages.yml`)
+**Hosting:** GitHub Pages (workflow: `.github/workflows/deploy-pages.yml`)  
+**Build:** Eleventy — výstup do `_site/`, deployuje se obsah `_site/`.
 
 ---
 
 ## 1. Přehled projektu
 
-Statický marketingový web pro službu **ULOV KLIENTY** — pomoc malým firmám, finančním poradcům, řemeslníkům a salonům s online prezentací (Google, web, katalogy, rezervační cesta). Bez buildu: čistý HTML, CSS a vanilla JavaScript.
+Statický marketingový web pro službu **ULOV KLIENTY** — pomoc malým firmám, finančním poradcům, řemeslníkům a salonům s online prezentací (Google, web, katalogy, rezervační cesta).  
+**Technologie:** Eleventy pro sestavení úvodní stránky, ostatní stránky statické HTML; vanilla CSS a JavaScript. Sdílená hlavička a patička pro index přes Nunjucks partialy.
 
 ---
 
@@ -16,35 +18,48 @@ Statický marketingový web pro službu **ULOV KLIENTY** — pomoc malým firmá
 
 ```
 Ulov_Klienty_web_js/
-├── index.html              # Úvodní stránka
-├── clanky.html             # Přehled článků + filtr
-├── dekujeme.html           # Děkujeme (po odeslání formuláře)
-├── obchodni-podminky.html  # Obchodní podmínky (docs styl)
-├── smlouva.html            # Smlouva (docs styl)
+├── index.html              # Šablona úvodní stránky (Eleventy → _site/index.html)
+├── pro-poradce.html        # Landing page pro placené kampaně (Eleventy → _site/pro-poradce/index.html)
+├── clanky.html             # Přehled článků + filtr (passthrough)
+├── dekujeme.html           # Děkujeme po odeslání formuláře (passthrough)
+├── obchodni-podminky.html  # Obchodní podmínky (passthrough)
+├── smlouva.html            # Smlouva (passthrough)
 ├── sitemap.xml             # Sitemapa (kanonické URL https://ulovklienty.cz)
-├── robots.txt              # Allow all, Sitemap: https://ulovklienty.cz/sitemap.xml
-├── CNAME                   # Doména pro GitHub Pages: ulovklienty.cz
+├── robots.txt              # Allow all, Sitemap
+├── CNAME                   # Doména: ulovklienty.cz
+├── .nojekyll               # Pro GitHub Pages
 ├── DOCUMENTACE.md          # Tento soubor
-├── .github/
-│   └── workflows/
-│       └── deploy-pages.yml   # Deploy na push do main
+├── _includes/              # Eleventy partialy
+│   ├── layout-base.njk    # Layout: head (GA, consent), header, footer, cookie bar (index)
+│   ├── layout-lp.njk      # Layout pro landing page (minimální header/footer)
+│   ├── header.njk
+│   ├── header-lp.njk      # Minimální header (pouze logo)
+│   ├── footer.njk
+│   ├── footer-lp.njk      # Minimální footer (kontakt, OP, GDPR)
+│   └── cookie-bar.njk
+├── data/
+│   └── clanky.json         # Jediný zdroj dat pro carousel článků (slug, title, excerpt, image, alt…)
+├── docs/                   # Dokumentace (nepublikuje se na web)
+│   ├── ELEVENTY-BUILD.md
+│   ├── ANALYZA-SDILENE-CASTI-A-GA.md
+│   └── GOOGLE-ANALYTICS-NASTAVENI.md
+├── eleventy.config.js      # Ignory, passthrough (assets, data, clanky, statické HTML)
+├── package.json            # scripts: build (eleventy), serve (eleventy --serve)
+├── .github/workflows/
+│   └── deploy-pages.yml    # npm install → npm run build → upload _site → deploy Pages
 ├── assets/
 │   ├── css/
 │   │   ├── main.css        # Hlavní styly (layout, komponenty, články, carousel)
-│   │   └── docs.css        # Styly pro obchodní podmínky a smlouvu
+│   │   └── docs.css        # Obchodní podmínky a smlouva
 │   └── js/
-│       ├── article-carousel.js  # Carousel článků (šipky + volitelně auto-advance)
-│       ├── articles-filter.js  # Filtr článků na clanky.html (Všechny / Poradci / …)
-│       ├── cookies.js      # Lišta souhlasu s cookies
-│       ├── form.js         # (volitelně) odeslání formuláře
-│       ├── opening-sale.js # (volitelně) akční nabídka
-│       ├── roi.js          # ROI kalkulačka na index.html
-│       └── year.js         # Aktuální rok do patičky
-└── clanky/
-    ├── jak-ziskat-nove-klienty-financni-poradce.html
-    ├── proc-financni-poradce-potrebuje-vlastni-web.html
-    ├── jak-ziskat-klienty-financni-sluzby-bez-studeny-ch-kontaktu.html
-    └── proc-financni-poradce-registrovat-online-katalogy.html
+│       ├── article-carousel.js  # Načte data z data-src (JSON), vykreslí karty, šipky + volitelně auto-advance
+│       ├── articles-filter.js  # Filtr článků na clanky.html
+│       ├── cookies.js      # Cookie lišta: Přijmout vše / Pouze nezbytné, consent pro GA
+│       ├── form.js, form-lp.js, opening-sale.js, roi.js, year.js
+├── clanky/
+│   ├── *.html              # 8 článků (passthrough); v každém carousel s data-src="/data/clanky.json"
+│   └── …
+└── _site/                  # Výstup Eleventy (gitignore) — zde se nasazuje
 ```
 
 ---
@@ -53,83 +68,92 @@ Ulov_Klienty_web_js/
 
 | Soubor | Účel |
 |--------|------|
-| **index.html** | Úvodní stránka: hero, „Poznáváte se?“, Co upravíme (služby), **carousel článků** (4 karty, auto-advance 3 s), důvěra, ceny, kontakt, formulář. |
-| **clanky.html** | Seznam článků s **filtrem** (Všechny / Finanční poradci / Řemeslné služby / Salony). Karty s obrázkem, nadpisem, podnadpisem, excerptem a odkazem na článek. |
-| **dekujeme.html** | Děkujeme za odeslání (cílový stav po formuláři). |
-| **obchodni-podminky.html** | Obchodní podmínky (layout z docs.css). |
-| **smlouva.html** | Smlouva (layout z docs.css). |
-| **clanky/*.html** | Čtyři články pro finanční poradce. V každém je na konci **carousel** dalších tří článků (bez auto-advance). |
+| **index.html** | Úvodní stránka (Eleventy layout): hero, služby, **carousel článků** (data z `data/clanky.json`), důvěra, ceny, kontakt, formulář. |
+| **pro-poradce.html** | **Landing page** pro placené kampaně (TikTok/FB/IG Ads). URL: `/pro-poradce/`. Minimální header (logo), hero s CTA → anchor sekce (#web, #recenze, #viditelnost, #komplet), formulář, carousel článků. Noindex, canonical na tuto URL. Měření: GA4, odeslání formuláře, scroll depth. |
+| **clanky.html** | Seznam článků s **filtrem** (Všechny / Finanční poradci / …). Karty s `data-category`. |
+| **dekujeme.html** | Děkujeme za odeslání formuláře. |
+| **obchodni-podminky.html**, **smlouva.html** | Právní texty (docs.css). |
+| **clanky/*.html** | Osm článků. V každém na konci **carousel** „Další články“ s daty z `/data/clanky.json` (placeholder: `data-src="/data/clanky.json"`, `data-base=""`). |
 
 ---
 
 ## 4. Články (clanky/)
 
-Všechny články mají společnou strukturu: hero, obsah (nadpisy, odstavce, obrázky, seznamy), blok „V kostce“, CTA, carousel dalších článků.
-
-| Článek | Téma |
-|--------|------|
-| jak-ziskat-nove-klienty-financni-poradce.html | Noví klienti bez doporučení a bez placené reklamy, důraz na online prezentaci. |
-| proc-financni-poradce-potrebuje-vlastni-web.html | Vlastní web vs. sociální sítě, kontrola a důvěra. |
-| jak-ziskat-klienty-financni-sluzby-bez-studeny-ch-kontaktu.html | Recenze, Google profil, offline marketing, vizitky. |
-| proc-financni-poradce-registrovat-online-katalogy.html | Proč a kde se registrovat v online katalozích, MUST HAVE / NICE TO HAVE, dárek: seznam katalogů. |
+Všechny články mají společnou strukturu: hero, obsah, „V kostce“, CTA, carousel dalších článků.  
+**Seznam:** jak-ziskat-nove-klienty-financni-poradce, proc-financni-poradce-potrebuje-vlastni-web, jak-ziskat-klienty-financni-sluzby-bez-studeny-ch-kontaktu, proc-financni-poradce-registrovat-online-katalogy, osobni-znacka-vs-znacka-materske-firmy, jak-reagovat-na-negativni-recenze, jak-ziskat-doporuceni-kdyz-zakaznik-nechce-dat-kontakty, jak-si-pozadat-o-recenzi.
 
 ---
 
 ## 5. Komponenty a chování
 
 ### Carousel článků (`article-carousel.js`)
-- **Kde:** index.html (4 karty), uvnitř každého článku (3 karty).
-- **Ovládání:** tlačítka Předchozí / Další.
-- **Index:** atribut `data-auto-advance="3000"` — automatický posun o jednu kartu každé 3 s; na konci se pruh vrátí na začátek.
-- **CSS:** `.article-carousel--show-3` na indexu zobrazuje 3 karty vedle sebe; v článcích může být jiná šířka.
+- **Zdroj dat:** jeden soubor **`data/clanky.json`** — úpravy carouselu na všech stránkách stačí dělat zde.
+- **Kde:** index.html (sekce Články), **pro-poradce** (landing page), uvnitř každého článku (Další články).
+- **HTML:** kontejner s `data-src="…"`, `data-base="…"`, prázdný `.article-carousel__track`. Volitelně: `data-limit="6"`, `data-excerpt-max="120"`, `data-btn-text="Číst"` (na LP).
+- **Ovládání:** tlačítka Předchozí / Další; na indexu `data-auto-advance="3000"` (posun každé 3 s).
+
+### Cookie lišta a souhlas (`cookies.js`)
+- **Tlačítka:** „Přijmout vše“ / „Pouze nezbytné“.
+- **Uložení:** `localStorage` klíč `ulov_klienty_cookies_consent` (`all` | `necessary`). Po „Přijmout vše“ se volá `gtag('consent', 'update', { ad_storage: 'granted', analytics_storage: 'granted' })` — teprve pak se odesílají data do Google Analytics.
+- Odkaz „Více informací“ vede na `site/cookies.html` (soubor v repozitáři může chybět).
 
 ### Filtr článků (`articles-filter.js`)
-- **Kde:** pouze clanky.html.
-- **Atributy:** tlačítka `data-filter="all"|"poradce"|"remeslo"|"salon"`, karty `data-category="…"`.
-- **Chování:** bez reloadu stránky skrývá/zobrazuje `.article-card` podle zvolené kategorie.
+- **Kde:** clanky.html. Tlačítka `data-filter`, karty `data-category`. Skrývá/zobrazuje karty bez reloadu.
 
-### Ostatní skripty
-- **cookies.js** — lišta s informací o cookies a tlačítko „Rozumím“.
-- **year.js** — doplní aktuální rok do prvku s `id="y"` v patičce.
-- **roi.js** — kalkulačka ROI na index.html (pokud je sekce přítomna).
-- **form.js** — odeslání kontaktního formuláře (na indexu může být zakomentovaný).
+### Formulář LP (`form-lp.js`)
+- **Kde:** stránka `/pro-poradce/`. Pole: Jméno, E-mail (povinné), Telefon a Zpráva (nepovinné).
+- **Odeslání:** FormSubmit.co (AJAX), po úspěchu redirect na `https://ulovklienty.cz/dekujeme.html`.
+- **Analytika:** GA4 událost `form_submit` při odeslání; `scroll_depth` (25 %, 50 %, 75 %, 100 %).
 
----
-
-## 6. Styly
-
-- **main.css** — vše kromě právních stránek: layout, header, hero, karty, sekce, články, carousel (`.article-carousel`, `.article-carousel__card-subtitle`, `.article-carousel--show-3`), filtr článků, patička, cookies lišta.
-- **docs.css** — obchodní podmínky a smlouva (čitelné dokumenty).
-
-Obrázky a fonty jsou z externích URL (např. haklweb.b-cdn.net).
+### Ostatní
+- **year.js** — aktuální rok do patičky (`id="y"`).
+- **roi.js** — kalkulačka ROI na indexu. **form.js** — odeslání formuláře na indexu (dle potřeby).
 
 ---
 
-## 7. Sitemapa a robots.txt
+## 6. Google Analytics (GA4)
 
-**sitemap.xml** (kanonická doména https://ulovklienty.cz, bez www), aktualizováno 23. 2. 2026:
-- `https://ulovklienty.cz/` (priority 1.0)
-- `https://ulovklienty.cz/clanky.html` (0.9)
-- čtyři články v `/clanky/` (0.8)
-- `obchodni-podminky.html`, `smlouva.html` (0.3)
-- stránka dekujeme v sitemap není (noindex).
-
-**robots.txt** v rootu: `User-agent: *`, `Allow: /`, `Sitemap: https://ulovklienty.cz/sitemap.xml`.
-
-Na všech stránkách je v `<head>` canonical na příslušnou URL (bez www). Na dekujeme.html je navíc `meta name="robots" content="noindex, nofollow"`.
+- **ID měření:** `G-44M171DCB9` (stream „UlovKlienty web“).
+- **Umístění:** gtag v `<head>` na všech stránkách (layout-base.njk + každé statické HTML).
+- **Consent mode:** výchozí `analytics_storage: 'denied'`; měření až po kliknutí „Přijmout vše“ v cookie liště.
+- **Podrobnosti a sledování stránek/článků:** viz **`docs/GOOGLE-ANALYTICS-NASTAVENI.md`**.
 
 ---
 
-## 8. Deployment
+## 7. Styly
 
-- **Trigger:** push do větve `main` nebo ruční spuštění workflow.
-- **Workflow:** `.github/workflows/deploy-pages.yml` — checkout, upload celého adresáře jako Pages artifact, deploy na GitHub Pages.
-- **Doména:** CNAME soubor nastavuje `ulovklienty.cz`; reálná URL je https://www.ulovklienty.cz (dle sitemap).
+- **main.css** — layout, header (včetně odkazu na Facebook), patička, hero, karty, články, carousel, cookie lišta, **styly pro landing page** (`.lp-header`, `.lp-footer`, `.lp-form-sec`, `.lp-hero__cta` atd.).
+- **docs.css** — obchodní podmínky a smlouva.  
+Obrázky a fonty z externích URL (haklweb.b-cdn.net).
 
 ---
 
-## 9. Poznámky pro údržbu
+## 8. Sitemapa a robots.txt
 
-- Při přidání nového článku: vytvořit soubor v `clanky/`, přidat kartu na `clanky.html` (včetně `data-category`), přidat kartu do carouselů v existujících článcích a do carouselu na `index.html`, **doplnit záznam do sitemap.xml**.
-- Odkazy na „Více informací“ o cookies vedou na `site/cookies.html` — tento soubor v repozitáři není; v případě potřeby doplnit stránku nebo odkaz změnit.
-- Formulář na index.html může používat form.js nebo externí službu; při změně cíle odeslání upravit action a případně form.js.
+**sitemap.xml:** úvodní stránka, clanky.html, osm článků v `/clanky/`, obchodni-podminky, smlouva. Stránky **dekujeme** a **pro-poradce** (noindex) v sitemap nejsou.  
+**robots.txt:** `User-agent: *`, `Allow: /`, `Sitemap: https://ulovklienty.cz/sitemap.xml`.  
+Canonical a noindex na dekujeme dle potřeby v `<head>`.
+
+---
+
+## 9. Deployment
+
+- **Trigger:** push do `main` nebo ruční spuštění workflow.
+- **Kroky:** checkout → `npm install` → `npm run build` (Eleventy) → upload artifact **`_site`** → deploy na GitHub Pages.
+- **Doména:** CNAME `ulovklienty.cz`; výsledná URL dle nastavení (https://ulovklienty.cz).
+
+---
+
+## 10. Lokální vývoj
+
+- **Build:** `npm run build` (výstup do `_site/`).
+- **Náhled s watch:** `npm run serve` (Eleventy dev server, typicky port 8080).
+
+---
+
+## 11. Poznámky pro údržbu
+
+- **Nový článek:** (1) přidat soubor do `clanky/`, (2) přidat záznam do **`data/clanky.json`** (slug, title, subtitle, excerpt, image, alt), (3) přidat kartu na **clanky.html** včetně `data-category`, (4) doplnit URL do **sitemap.xml**. Carousel na indexu i v článcích se aktualizuje sám z `clanky.json`.
+- Formulář: při změně cíle odeslání upravit action a případně form.js.
+- Změna GA ID nebo consent logiky: úpravy v `_includes/layout-base.njk`, `_includes/layout-lp.njk` a ve všech statických HTML (clanky.html, dekujeme, smlouva, obchodni-podminky, clanky/*.html).
+- **Landing page (pro-poradce):** Pokud chcete stránku indexovat, v `pro-poradce.html` nastavte `noindex: false` a přidejte URL do sitemap.xml. UTM parametry z reklam GA4 zachytí automaticky.
