@@ -62,5 +62,13 @@
     "excerpt": "Budovat vlastní jméno, nebo se držet mateřské značky? Rozhoduje důvěra, konzistence a psychologie barev. Na konci článku: psychologie barev a 5min brand audit.",
     "image": "https://haklweb.b-cdn.net/ULOV_KLIENTA/JAK_NA_BRAND.webp",
     "alt": "Osobní značka vs. značka mateřské firmy"
+  },
+  {
+    "slug": "proc-je-lepsi-web-na-miru-nez-online-editory.html",
+    "title": "Proč je někdy lepší web vytvořený na míru než stránky z online editoru",
+    "subtitle": "Rozdíl mezi webem z editoru a webem vytvořeným přímo v kódu může být větší, než se na první pohled zdá.",
+    "excerpt": "Online editory umožňují vytvořit web během několika minut. Stačí si vybrat šablonu a začít upravovat obsah. Takové řešení ale má i své nevýhody – například pravidelné poplatky, omezené možnosti úprav nebo technickou závislost na platformě. V článku si vysvětlíme, jaký je rozdíl mezi webem vytvořeným v online editoru a webem připraveným přímo v kódu, a kdy může dávat větší smysl jedno nebo druhé řešení. 🎁 Na konci článku najdete jednoduchý checklist, podle kterého poznáte kvalitně připravený web.",
+    "image": "https://haklweb.b-cdn.net/ULOV_KLIENTA/weORwisiwyg.webp",
+    "alt": "Web na míru vs. online editor"
   }
 ]
