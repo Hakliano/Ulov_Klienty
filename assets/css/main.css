@@ -1931,6 +1931,94 @@ body.lp-body .container{ padding-left: 22px; padding-right: 22px; }
 .lp-form__submit{ width: 100%; margin-top: var(--s12); min-height: 52px; font-size: 17px; }
 .lp-form__status{ margin: var(--s12) 0 0; font-size: 14px; min-height: 1.4em; }
 
+/* LP web-poradce: formulář v kartě (zvýšení konverze) */
+.lp-form-card{
+  background: #fff;
+  border-radius: var(--radius2);
+  padding: var(--s32);
+  border: 1px solid rgba(11,42,60,.08);
+  box-shadow: 0 8px 32px rgba(0,0,0,.25), 0 2px 12px rgba(0,0,0,.15);
+  margin-top: var(--s24);
+}
+.lp-form-card__hint{
+  margin: 0 0 var(--s20);
+  font-size: 15px;
+  color: #4a5568;
+}
+.lp-form-card__disclaimer{
+  margin: var(--s16) 0 0;
+  font-size: 14px;
+  color: #4a5568;
+}
+/* Kontrolní otázka – ochrana proti robotům */
+.lp-form-captcha__note{
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #718096;
+  font-weight: 400;
+}
+.lp-form-captcha__wrap{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.lp-form-captcha__img{
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: var(--radius);
+  background: rgba(11,42,60,.06);
+}
+.lp-form-captcha__input{
+  width: 80px;
+  padding: 12px 14px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: var(--radius);
+  border: 1px solid rgba(11,42,60,.2);
+  background: #f8fafc;
+  color: #1a2332;
+}
+.lp-form-card .lp-form-captcha__input::placeholder{ color: #a0aec0; }
+.lp-form.is-locked .lp-form__row input,
+.lp-form.is-locked .lp-form__row textarea,
+.lp-form.is-locked .lp-form__submit{
+  opacity: 0.6;
+  pointer-events: none;
+}
+.lp-form.is-locked input,
+.lp-form.is-locked textarea,
+.lp-form.is-locked select,
+.lp-form.is-locked button{
+  opacity: 0.6;
+  pointer-events: none;
+}
+.lp-form-card .lp-form__row label{ color: #1a2332; }
+.lp-form-card .lp-form__row input,
+.lp-form-card .lp-form__row textarea{
+  border: 1px solid rgba(11,42,60,.2);
+  background: #f8fafc;
+  color: #1a2332;
+}
+.lp-form-card .lp-form__row input::placeholder,
+.lp-form-card .lp-form__row textarea::placeholder{ color: #718096; }
+.lp-form-card .lp-form__optional{ color: #718096; }
+@media (max-width: 480px){ .lp-form-card{ padding: var(--s24); } }
+
+/* LP web-poradce: výhody v hero */
+.lp-hero__benefits{
+  margin: 0 0 var(--s24);
+  padding-left: 1.35em;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+}
+.lp-hero__benefits li{ margin-bottom: 0.4em; }
+
+/* LP minimální patička – jen kontakt + odkaz */
+.lp-footer--minimal .lp-footer__contact{ margin: 0; }
+
 .lp-divider{ padding: var(--s48) 0; }
 .lp-divider__title{
   margin: 0;

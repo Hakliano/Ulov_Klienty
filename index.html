@@ -230,9 +230,11 @@ roi: true
           <div class="card">
             <h3 style="margin:0 0 12px;">Napište nám</h3>
 
-              <form id="leadForm"
+              <form id="leadForm" class="lp-form"
                     action="https://formsubmit.co/info@ulovklienty.cz"
-                    method="POST">
+                    method="POST"
+                    data-captcha-lock-hours="4"
+                    data-captcha-options='[{"img":"https://haklweb.b-cdn.net/ULOV_KLIENTA/15.webp","answer":"15"},{"img":"https://haklweb.b-cdn.net/ULOV_KLIENTA/1860.webp","answer":"1860"},{"img":"https://haklweb.b-cdn.net/ULOV_KLIENTA/333.webp","answer":"333"},{"img":"https://haklweb.b-cdn.net/ULOV_KLIENTA/42.webp","answer":"42"},{"img":"https://haklweb.b-cdn.net/ULOV_KLIENTA/3f668bd6-be25-4139-b6db-6f80e7d1eb47.webp","answer":"4"}]'>
                 <input type="hidden" name="_next" value="https://ulovklienty.cz/dekujeme.html">
                 <div class="form-row">
                 <div>
@@ -268,9 +270,13 @@ roi: true
               </div>
 
               <div class="form-row">
-                <div>
-                  <label for="spam">Ochrana proti spamu: Kolik je 2 + 2?</label>
-                  <input id="spam" name="spam" inputmode="numeric" autocomplete="off" placeholder="Napište výsledek" required />
+                <div class="lp-form-captcha">
+                  <label for="leadCaptcha">Napište číslo, které vidíte na obrázku</label>
+                  <p class="lp-form-captcha__note">Jen ochrana proti robotům – díky.</p>
+                  <div class="lp-form-captcha__wrap">
+                    <img class="lp-form-captcha__img" id="leadCaptchaImg" src="https://haklweb.b-cdn.net/ULOV_KLIENTA/3f668bd6-be25-4139-b6db-6f80e7d1eb47.webp" alt="Číslo na obrázku" width="60" height="60" loading="lazy">
+                    <input id="leadCaptcha" type="text" inputmode="numeric" autocomplete="off" placeholder="?" maxlength="4" aria-label="Číslo z obrázku" required>
+                  </div>
                 </div>
                 <div></div>
               </div>
