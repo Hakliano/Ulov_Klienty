@@ -2010,6 +2010,12 @@ body.lp-body .container{ padding-left: 22px; padding-right: 22px; }
   gap: 12px;
   flex-wrap: wrap;
 }
+.lp-form-captcha__img-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
 .lp-form-captcha__img{
   width: 60px;
   height: 60px;
@@ -2017,6 +2023,19 @@ body.lp-body .container{ padding-left: 22px; padding-right: 22px; }
   border-radius: var(--radius);
   background: rgba(11,42,60,.06);
 }
+.lp-form-captcha__refresh{
+  font-size: 12px;
+  padding: 4px 0;
+  background: none;
+  border: none;
+  color: var(--gold);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.lp-form-captcha__refresh:hover{ color: var(--navy); }
+.sec--dark .lp-form-captcha__refresh{ color: rgba(201,162,74,.9); }
+.sec--dark .lp-form-captcha__refresh:hover{ color: #fff; }
 .lp-form-captcha__input{
   width: 80px;
   padding: 12px 14px;
@@ -2062,6 +2081,11 @@ body.lp-body .container{ padding-left: 22px; padding-right: 22px; }
   color: var(--text);
 }
 .lp-hero__benefits li{ margin-bottom: 0.4em; }
+/* LP bez smooth scrollu: hero seznam držet vlevo i na mobilu */
+.lp-page--no-smooth .lp-hero__benefits{
+  text-align: left;
+  margin-left: 0;
+}
 
 /* LP minimální patička – jen kontakt + odkaz */
 .lp-footer--minimal .lp-footer__contact{ margin: 0; }

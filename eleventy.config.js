@@ -1,4 +1,19 @@
+const htmlmin = require("html-minifier-terser");
+
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
+    if (outputPath && outputPath.endsWith(".html")) {
+      return htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true,
+        minifyCSS: false,
+        minifyJS: false,
+      });
+    }
+    return content;
+  });
+
   // Nezpracovávat jako šablony – jen zkopírovat (passthrough)
   eleventyConfig.ignores.add("obchodni-podminky.html");
   eleventyConfig.ignores.add("smlouva.html");
@@ -15,6 +30,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("CNAME");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("sitemap.xml");
+  eleventyConfig.addPassthroughCopy("_headers");
   eleventyConfig.addPassthroughCopy(".nojekyll");
   eleventyConfig.addPassthroughCopy("obchodni-podminky.html");
   eleventyConfig.addPassthroughCopy("smlouva.html");

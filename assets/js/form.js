@@ -80,6 +80,13 @@
     setStatus("Formulář je dočasně uzavřen (ochrana proti robotům). Zkuste to za " + lockHours + " h, nebo napište na info@ulovklienty.cz.");
   }
 
+  const refreshBtn = form.querySelector("#leadCaptchaRefresh");
+  if (hasCaptcha && refreshBtn) {
+    refreshBtn.addEventListener("click", function () {
+      pickNewCaptcha(currentCaptchaAnswer);
+    });
+  }
+
   function setStatus(text, ok = false) {
     if (!status) return;
     status.textContent = text || "";

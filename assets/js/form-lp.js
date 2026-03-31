@@ -14,7 +14,7 @@
   var currentCaptchaAnswer = null;
   var captchaOptions = [];
 
-  function pickNewCaptcha(avoidAnswer) {
+  function pickNewCaptcha(avoidAnswer, shouldFocus) {
     if (captchaOptions.length === 0) return;
     var pool = captchaOptions;
     if (avoidAnswer != null && captchaOptions.length > 1) {
@@ -30,7 +30,7 @@
     var captchaInput = form.querySelector('#lp-captcha');
     if (captchaInput) {
       captchaInput.value = '';
-      captchaInput.focus();
+      if (shouldFocus !== false) captchaInput.focus();
     }
   }
 
@@ -42,7 +42,7 @@
         var options = JSON.parse(optionsJson);
         if (options && options.length > 0) {
           captchaOptions = options;
-          pickNewCaptcha(null);
+          pickNewCaptcha(null, false);
           return;
         }
       } catch (e) {}
@@ -104,6 +104,12 @@
     if (isLocked()) {
       form.classList.add('is-locked');
       setStatus('Formulář je dočasně uzavřen (ochrana proti robotům). Zkuste to za ' + lockHours + ' h, nebo napište na info@ulovklienty.cz.');
+    }
+    var refreshBtn = form.querySelector('#lpCaptchaRefresh');
+    if (refreshBtn) {
+      refreshBtn.addEventListener('click', function () {
+        pickNewCaptcha(currentCaptchaAnswer);
+      });
     }
   }
 
