@@ -43,7 +43,7 @@
     setStatus("Kvůli opakovanému špatnému zadání je formulář dočasně uzavřen. Zkuste to prosím za " + lockHours + " hodin, nebo napište na info@ulovklienty.cz.");
   }
 
-  function pickNewCaptcha(avoidAnswer) {
+  function pickNewCaptcha(avoidAnswer, shouldFocus) {
     if (captchaOptions.length === 0) return;
     let pool = captchaOptions;
     if (avoidAnswer != null && captchaOptions.length > 1) {
@@ -57,7 +57,7 @@
     const captchaInput = form.querySelector("#leadCaptcha");
     if (captchaInput) {
       captchaInput.value = "";
-      captchaInput.focus();
+      if (shouldFocus !== false) captchaInput.focus();
     }
   }
 
@@ -68,7 +68,7 @@
         const options = JSON.parse(optionsJson);
         if (options && options.length > 0) {
           captchaOptions = options;
-          pickNewCaptcha(null);
+          pickNewCaptcha(null, false);
         }
       } catch (e) {}
     }

@@ -1849,6 +1849,37 @@ body.lp-body .container{ padding-left: 22px; padding-right: 22px; }
 }
 @media (max-width: 480px){ .lp-header__logo{ height: 64px; max-width: 150px; } }
 
+.lp-header__nav{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.lp-header__link{
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(255,255,255,.06);
+}
+.lp-header__link:hover{ background: rgba(255,255,255,.12); }
+.lp-header__link--accent{
+  color: var(--gold);
+  border-color: rgba(201,162,74,.45);
+  background: rgba(201,162,74,.12);
+}
+@media (max-width: 900px){
+  .lp-header__inner{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .lp-header__nav{ justify-content: flex-start; }
+}
+
 .lp-header__home{
   display: inline-flex;
   align-items: center;
@@ -1872,6 +1903,21 @@ body.lp-body .container{ padding-left: 22px; padding-right: 22px; }
 .lp-hero .hero-bubble__grid{ align-items: center; }
 .lp-hero .hero-bubble__photo{
   max-width: 160px;
+}
+/* /web-podnikatele: roztáhnout text hero více do šířky */
+.lp-page--no-smooth .lp-hero .hero-bubble__grid{
+  max-width: 1220px;
+  grid-template-columns: minmax(0, 1.3fr) minmax(140px, 0.7fr);
+}
+.lp-page--no-smooth .lp-hero .hero-bubble__title,
+.lp-page--no-smooth .lp-hero .hero-bubble__lead{
+  max-width: none;
+}
+@media (max-width: 900px){
+  .lp-page--no-smooth .lp-hero .hero-bubble__grid{
+    grid-template-columns: 1fr;
+    gap: var(--s32);
+  }
 }
 .lp-hero__cta{
   display: flex;
