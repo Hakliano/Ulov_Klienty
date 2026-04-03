@@ -26,6 +26,9 @@
   {% if canonical %}
   <link rel="canonical" href="{{ canonical }}" />
   {% endif %}
+  {% if noindex %}
+  <meta name="robots" content="noindex, follow" />
+  {% endif %}
 </head>
 <body>
   {% include "header.njk" %}
@@ -44,6 +47,9 @@
   {% endif %}
   {% if roi %}
   <script src="{{ baseUrl }}assets/js/roi.js" defer></script>
+  {% endif %}
+  {% if briefKlientForm %}
+  <script src="{{ baseUrl }}assets/js/brief-klient-form.js" defer></script>
   {% endif %}
 </body>
 </html>
