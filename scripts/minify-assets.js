@@ -14,13 +14,17 @@ async function main() {
     const { minify: minifyJS } = require("terser");
     const cleanCSS = new CleanCSS({ level: 1 });
 
-    const cssPath = path.join(ASSETS, "css", "main.css");
-    if (fs.existsSync(cssPath)) {
-      const css = fs.readFileSync(cssPath, "utf8");
-      const out = cleanCSS.minify(css);
-      if (!out.errors.length) {
-        fs.writeFileSync(cssPath, out.styles, "utf8");
-        console.log("Minified main.css");
+    const cssDir = path.join(ASSETS, "css");
+    if (fs.existsSync(cssDir)) {
+      for (const name of ["main.css", "web-demos.css"]) {
+        const cssPath = path.join(cssDir, name);
+        if (!fs.existsSync(cssPath)) continue;
+        const css = fs.readFileSync(cssPath, "utf8");
+        const out = cleanCSS.minify(css);
+        if (!out.errors.length) {
+          fs.writeFileSync(cssPath, out.styles, "utf8");
+          console.log("Minified " + name);
+        }
       }
     }
 

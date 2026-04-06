@@ -20,6 +20,9 @@
   <link rel="icon" href="https://haklweb.b-cdn.net/ULOV_KLIENTA/favicon.png" type="image/png" />
   <title>{{ title }}</title>
   <link rel="stylesheet" href="{{ baseUrl }}assets/css/main.css?v=2">
+  {% if extraCss %}
+  <link rel="stylesheet" href="{{ baseUrl }}{{ extraCss }}?v=2">
+  {% endif %}
   {% if description %}
   <meta name="description" content="{{ description }}" />
   {% endif %}
