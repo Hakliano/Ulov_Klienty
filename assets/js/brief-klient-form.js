@@ -300,7 +300,7 @@
         window.location.href = REDIRECT_URL;
       })
       .catch(function () {
-        setStatus("Odeslání se nezdařilo. Napište prosím na info@ulovklienty.cz nebo zavolejte +420 719 756 746.");
+        setStatus("Odeslání se nezdařilo. Napište prosím na info@ulovklienty.cz nebo zavolejte +420 797 756 746.");
       });
   });
 })();

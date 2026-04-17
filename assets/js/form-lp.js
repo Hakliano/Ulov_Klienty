@@ -203,7 +203,7 @@
         window.location.href = REDIRECT_URL;
       })
       .catch(function () {
-        setStatus('Nepodařilo se odeslat. Zkuste to prosím znovu nebo nám zavolejte na +420 719 756 746.');
+        setStatus('Nepodařilo se odeslat. Zkuste to prosím znovu nebo nám zavolejte na +420 797 756 746.');
       });
   });
 })();
